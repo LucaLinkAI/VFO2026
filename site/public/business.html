@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Practice Growth — CPAs & Advisors with the VFO | Elite VFO Collective 2026</title>
+<meta name="description" content="How CPAs and financial advisors grow their practice and collaborate with the Virtual Family Office — the '2 Businesses Under 1 Roof' model, by practice type, with real case studies." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:#0b2545; --blue:#13447a; --accent:#1d6fce; --accent-2:#3a8dde;
+    --sky:#eaf2fb; --ink:#1b2535; --muted:#5b6b82; --line:#e2e8f2; --bg:#f6f9fd; --white:#fff;
+    --radius:14px; --shadow:0 6px 24px rgba(13,40,80,.08); --shadow-lg:0 14px 44px rgba(13,40,80,.14);
+    --cpa:#0d7a4f; --cpa-bg:#e7f7ef; --adv:#1d6fce; --adv-bg:#eaf2fb; --amber:#b9770a; --amber-bg:#fff7e8;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
+    background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent); text-decoration:none; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 22px; }
+
+  header.site { position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line); }
+  .nav { display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--navy); letter-spacing:.2px; }
+  .brand .mark { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--navy));
+    display:grid; place-items:center; color:#fff; font-size:14px; font-weight:800; }
+  .nav nav a { color:var(--muted); font-weight:600; font-size:14px; margin-left:20px; }
+  .nav nav a:hover, .nav nav a.active { color:var(--accent); }
+  @media (max-width:680px){ .nav nav a { margin-left:13px; font-size:13px; } .brand .label{ display:none; } }
+
+  .hero { background: radial-gradient(1200px 500px at 70% -10%, rgba(58,141,222,.35), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--blue) 70%); color:#fff; padding:56px 0 62px; position:relative; overflow:hidden; }
+  .hero:after { content:""; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E"); pointer-events:none; }
+  .hero .wrap { position:relative; z-index:1; }
+  .eyebrow { display:inline-block; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+    padding:6px 14px; border-radius:999px; font-size:12.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:16px; }
+  .hero h1 { font-size:clamp(28px,4.6vw,46px); line-height:1.08; margin:0 0 12px; font-weight:800; }
+  .hero h1 span { color:var(--accent-2); }
+  .hero p.lede { font-size:clamp(15px,2vw,18px); color:#d6e4f5; max-width:720px; margin:0 0 24px; }
+  .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; padding:12px 20px; border-radius:11px; cursor:pointer; border:1px solid transparent; transition:.18s; }
+  .btn svg { width:17px; height:17px; }
+  .btn-primary { background:var(--accent-2); color:#fff; box-shadow:0 8px 22px rgba(29,111,206,.4); }
+  .btn-primary:hover { background:#4f9be6; transform:translateY(-1px); }
+  .btn-ghost { background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.28); }
+  .btn-ghost:hover { background:rgba(255,255,255,.16); }
+
+  section { padding:48px 0; }
+  .sec-head { margin-bottom:26px; }
+  .sec-head .tag { color:var(--accent); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.8px; }
+  .sec-head h2 { font-size:clamp(23px,3.3vw,32px); margin:6px 0 8px; color:var(--navy); font-weight:800; }
+  .sec-head p { color:var(--muted); margin:0; max-width:720px; }
+
+  /* Core idea: factory vs boutique */
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:720px){ .split { grid-template-columns:1fr; } }
+  .biz { border-radius:var(--radius); padding:22px; border:1px solid var(--line); box-shadow:var(--shadow); background:#fff; }
+  .biz .lbl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; margin-bottom:6px; }
+  .biz h3 { margin:0 0 4px; font-size:19px; color:var(--navy); font-weight:800; }
+  .biz .meta { font-size:13px; color:var(--muted); font-weight:600; margin-bottom:14px; }
+  .biz ul { margin:0; padding-left:18px; }
+  .biz li { font-size:14px; margin-bottom:7px; }
+  .biz.back { background:linear-gradient(180deg,#f4f7fb,#fff); }
+  .biz.back .lbl { color:var(--muted); }
+  .biz.fwd { background:linear-gradient(180deg,var(--adv-bg),#fff); border-color:#cfe0f4; }
+  .biz.fwd .lbl { color:var(--accent); }
+  .bestclients { text-align:center; font-size:13px; font-weight:700; color:var(--navy); background:var(--sky); border:1px dashed #d8e6f7; border-radius:10px; padding:10px; margin-top:16px; }
+
+  .ingredients { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+  @media (max-width:720px){ .ingredients { grid-template-columns:repeat(2,1fr); } }
+  .ing { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
+  .ing .q { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  .ing .a { font-size:16px; font-weight:800; color:var(--navy); }
+
+  /* Tabs */
+  .tabs { display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
+  .tab { border:1px solid var(--line); background:#fff; color:var(--muted); font-weight:700; font-size:15px;
+    padding:13px 22px; border-radius:12px; cursor:pointer; transition:.16s; font-family:inherit; display:flex; align-items:center; gap:9px; }
+  .tab svg { width:18px; height:18px; }
+  .tab.active.cpa { background:var(--cpa); color:#fff; border-color:var(--cpa); box-shadow:var(--shadow); }
+  .tab.active.adv { background:var(--adv); color:#fff; border-color:var(--adv); box-shadow:var(--shadow); }
+  .panel { display:none; }
+  .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from {opacity:0; transform:translateY(6px);} to {opacity:1; transform:none;} }
+
+  .typecards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width:900px){ .typecards { grid-template-columns:1fr; } }
+  .tc { background:#fff; border:1px solid var(--line); border-radius:13px; padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+  .tc .badge { align-self:flex-start; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.4px; padding:3px 9px; border-radius:999px; margin-bottom:10px; }
+  .tc.cpa .badge { color:var(--cpa); background:var(--cpa-bg); }
+  .tc.adv .badge { color:var(--adv); background:var(--adv-bg); }
+  .tc h4 { margin:0 0 8px; font-size:16.5px; color:var(--navy); font-weight:800; }
+  .tc p { margin:0 0 12px; font-size:13.5px; color:var(--muted); }
+  .tc ul { margin:0 0 12px; padding-left:17px; }
+  .tc li { font-size:13.5px; margin-bottom:6px; }
+  .tc .vfo { margin-top:auto; font-size:12.5px; font-weight:700; padding:8px 11px; border-radius:9px; }
+  .tc.cpa .vfo { color:var(--cpa); background:var(--cpa-bg); }
+  .tc.adv .vfo { color:var(--adv); background:var(--adv-bg); }
+  .tc.yours, .biz.yours { box-shadow:0 0 0 2px rgba(29,111,206,.3), var(--shadow-lg); border-color:var(--accent); position:relative; }
+  .yours-rib { position:absolute; top:-11px; right:14px; font-size:10.5px; font-weight:800; letter-spacing:.4px; text-transform:uppercase;
+    color:#fff; background:var(--accent); padding:3px 10px; border-radius:999px; box-shadow:0 4px 10px rgba(29,111,206,.4); }
+
+  /* Your-profile spotlight */
+  .profilebox { background:linear-gradient(135deg,#0b2545,#13447a); color:#fff; border-radius:16px; padding:22px 24px; box-shadow:var(--shadow-lg); margin-bottom:26px; }
+  .profilebox .pb-head { font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px; }
+  .profilebox h3 { margin:0 0 8px; font-size:19px; font-weight:800; }
+  .profilebox p { margin:0 0 14px; font-size:14.5px; color:#d6e4f5; max-width:760px; }
+  .pb-tags { display:flex; flex-wrap:wrap; gap:10px; }
+  .pb-tag { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700; border-radius:10px; padding:8px 13px; }
+  .pb-tag.adv { color:#fff; background:rgba(58,141,222,.35); border:1px solid rgba(120,180,240,.5); }
+  .pb-tag.cpa { color:#fff; background:rgba(13,122,79,.4); border:1px solid rgba(60,200,150,.45); }
+  .pb-tag svg { width:15px; height:15px; }
+
+  .cases { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:16px; }
+  .case { background:linear-gradient(160deg,var(--navy),var(--blue)); color:#fff; border-radius:13px; padding:20px; box-shadow:var(--shadow-lg); }
+  .case .name { font-size:12px; font-weight:700; color:#9fc0e6; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+  .case h4 { margin:0 0 10px; font-size:17px; font-weight:800; }
+  .case .nums { display:flex; flex-wrap:wrap; gap:16px; margin-top:12px; }
+  .case .num .v { font-size:22px; font-weight:800; color:var(--accent-2); }
+  .case .num .k { font-size:11.5px; color:#c5d6ec; }
+  .case ul { margin:0; padding-left:17px; }
+  .case li { font-size:13px; margin-bottom:5px; color:#dCe7f5; }
+
+  /* Generic content blocks */
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width:820px){ .grid3 { grid-template-columns:1fr; } }
+  .card { background:#fff; border:1px solid var(--line); border-radius:13px; padding:18px; box-shadow:var(--shadow); }
+  .card .n { width:30px; height:30px; border-radius:8px; background:var(--sky); color:var(--accent); font-weight:800; display:grid; place-items:center; font-size:14px; margin-bottom:10px; }
+  .card h4 { margin:0 0 6px; font-size:16px; color:var(--navy); font-weight:700; }
+  .card p { margin:0; font-size:13.5px; color:var(--muted); }
+
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media (max-width:720px){ .stats { grid-template-columns:repeat(2,1fr); } }
+  .stat { background:#fff; border:1px solid var(--line); border-radius:13px; padding:18px; text-align:center; box-shadow:var(--shadow); }
+  .stat .v { font-size:28px; font-weight:800; color:var(--accent); }
+  .stat .k { font-size:12.5px; color:var(--muted); font-weight:600; margin-top:4px; }
+
+  .steps { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+  @media (max-width:900px){ .steps { grid-template-columns:repeat(2,1fr); } }
+  .step { background:#fff; border:1px solid var(--line); border-radius:12px; padding:15px; box-shadow:var(--shadow); }
+  .step .s { font-size:11px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.4px; margin-bottom:5px; }
+  .step h4 { margin:0 0 5px; font-size:15px; color:var(--navy); font-weight:700; }
+  .step p { margin:0; font-size:12.5px; color:var(--muted); }
+
+  .roadmap { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:720px){ .roadmap { grid-template-columns:1fr; } }
+  .rm { background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow); }
+  .rm .tagn { display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#fff; background:var(--accent); border-radius:999px; padding:4px 12px; margin-bottom:10px; }
+  .rm h3 { margin:0 0 8px; font-size:19px; color:var(--navy); font-weight:800; }
+  .rm ul { margin:0; padding-left:18px; } .rm li { font-size:14px; margin-bottom:7px; }
+
+  /* Sources */
+  .srcs { display:flex; flex-wrap:wrap; gap:10px; }
+  .srcchip { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700; padding:10px 15px; border-radius:10px; transition:.15s; }
+  .srcchip.deck { color:#fff; background:var(--accent); }
+  .srcchip.deck:hover { background:var(--navy); }
+  .srcchip.book { color:var(--blue); background:#eef3fa; border:1px solid var(--line); }
+  .srcchip.book:hover { background:#e1ebf7; color:var(--accent); }
+  .srcchip svg { width:15px; height:15px; }
+
+  .note { font-size:12.5px; color:var(--muted); margin-top:18px; padding:14px 16px; background:var(--sky); border-radius:10px; border:1px solid #d8e6f7; }
+
+  footer.site { background:var(--navy); color:#c5d6ec; padding:40px 0; margin-top:10px; }
+  footer .row-f { display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center; }
+  footer .brand { color:#fff; }
+  footer a { color:#9fc0e6; }
+  footer small { color:#7f97b6; display:block; margin-top:6px; }</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">For CPAs &amp; Financial Advisors</span>
+    <h1>Grow Your Practice with the <span>Virtual Family Office</span></h1>
+    <p class="lede">How accountants and advisors build a second, higher-value planning business alongside their core practice — and collaborate with the VFO's 75+ specialists to add value, deepen relationships, and create new revenue. Based on Paul Latham's "2 Businesses Under 1 Roof" and the Elite Resource Team library.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="slides/13-2-businesses-1-roof.pdf" download="13 - 2 Businesses Under 1 Roof.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download the Deck
+      </a>
+      <a class="btn btn-ghost" href="#tracks">Choose your track ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- CORE IDEA -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">The Core Idea</span>
+      <h2>2 Businesses Under 1 Roof</h2>
+      <p>Whether you're an accountant or an advisor, the breakthrough is to run two distinct businesses under one roof — a backward-looking <b>core business</b> built for efficiency, and a forward-looking <b>VFO planning business</b> built to add value for your best clients. Keeping them clearly separate avoids client confusion about what they're paying for.</p>
+    </div>
+    <div class="split">
+      <div class="biz back">
+        <div class="lbl">Backward-looking · "The Factory"</div>
+        <h3>Core / Compliance Business</h3>
+        <div class="meta">Focus: EFFICIENCY</div>
+        <ul>
+          <li>Large % of existing service — what clients already pay for</li>
+          <li>Tax compliance, returns, AUM stewardship, qualified plans</li>
+          <li>Volume &amp; scalability; keep it "clean and boring"</li>
+          <li>Avoid the "Monday-to-Friday syndrome" of staying only here</li>
+        </ul>
+      </div>
+      <div class="biz fwd">
+        <div class="lbl">Forward-looking · "The Boutique"</div>
+        <h3>VFO Planning Business</h3>
+        <div class="meta">Focus: ADD VALUE</div>
+        <ul>
+          <li>Wider, proactive, holistic planning via the VFO</li>
+          <li>Clearly different — something clients <b>pay extra</b> for</li>
+          <li>New revenue stream + marketing differentiator (not a commodity)</li>
+          <li>"Orchestrate, don't execute" — you lead the relationship</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bestclients">↳ The VFO planning business is aimed at your BEST CLIENTS — packaged &amp; presented separately from core services.</div>
+
+    <div class="sec-head" style="margin:34px 0 0;">
+      <span class="tag">3 Ingredients of Business Success</span>
+      <h2 style="font-size:22px;">Vision · Plan · Desire — and Structure</h2>
+    </div>
+    <div class="ingredients">
+      <div class="ing"><div class="q">Where are you going?</div><div class="a">Vision</div></div>
+      <div class="ing"><div class="q">How will you get there?</div><div class="a">Plan</div></div>
+      <div class="ing"><div class="q">What vehicle are you in?</div><div class="a">Structure</div></div>
+      <div class="ing"><div class="q">Determined to get there?</div><div class="a">Desire</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section id="tracks" style="background:linear-gradient(180deg,#fff,#f6f9fd);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Your Track</span>
+      <h2>How You Grow &amp; Collaborate with the VFO</h2>
+      <p>The "2 businesses" model applies differently depending on your profession and how constrained you are by compliance. Pick your track.</p>
+    </div>
+
+    <div class="profilebox">
+      <div class="pb-head">★ Mapped to your firm</div>
+      <h3>Type 1 Advisors + planning-focused CPAs who keep compliance &amp; execution in-house</h3>
+      <p>You have full VFO access and can take revenue shares (Type 1 Advisor), partnering with CPAs whose core is <b>proactive planning</b> but who deliberately keep <b>compliance and execution in-house</b> — using VFO specialists for advanced strategies and added capacity rather than handing the work off. The two highlighted cards below are your starting points.</p>
+      <div class="pb-tags">
+        <span class="pb-tag adv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><polyline points="4 17 9 11 13 14 20 6"/></svg> Type 1 Advisor — full VFO + revenue share</span>
+        <span class="pb-tag cpa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/></svg> Planning-focused CPA — compliance + execution in-house</span>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab cpa active" data-tab="cpa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+        For CPAs &amp; Accountants
+      </button>
+      <button class="tab adv" data-tab="adv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><polyline points="4 17 9 11 13 14 20 6"/></svg>
+        For Financial Advisors
+      </button>
+    </div>
+
+    <!-- CPA PANEL -->
+    <div class="panel cpa active" data-tab="cpa">
+      <div class="sec-head" style="margin-bottom:16px;"><h2 style="font-size:20px;">Where does your firm sit today?</h2>
+        <p>Most accounting firms fall into one of three models. The VFO-coordinated model commands the highest revenue per client by coordinating a vetted specialist team — without hiring or overhead.</p></div>
+      <div class="typecards">
+        <div class="tc cpa"><span class="badge">Model 1</span><h4>Compliance Factory</h4>
+          <p>Revenue tied to hours; price-shopping clients; seasonal burnout.</p>
+          <ul><li>Avg revenue/client <b>$300–$1,500</b></li><li>Backward-looking only</li><li>Refers advanced work away</li></ul>
+          <div class="vfo">Opportunity: add a 2nd VFO business</div>
+        </div>
+        <div class="tc cpa"><span class="badge">Model 2</span><h4>Advisory Firm</h4>
+          <p>Proactive planning that saves clients real money; strategic-partner status.</p>
+          <ul><li>Avg revenue/client <b>$2,000–$5,000+</b></li><li>Year-round relationships</li><li>Premium fees, not price wars</li></ul>
+          <div class="vfo">Deepen with VFO specialists</div>
+        </div>
+        <div class="tc cpa"><span class="badge">Model 3</span><h4>VFO-Coordinated Firm</h4>
+          <p>Coordinates 75+ vetted specialists as an extension of the team.</p>
+          <ul><li>Highest revenue per client</li><li>No specialist hiring / overhead</li><li>Revenue generated year-round</li></ul>
+          <div class="vfo">The destination model</div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin:30px 0 16px;"><h2 style="font-size:20px;">Two types of accountant — same model, two paths</h2></div>
+      <div class="split">
+        <div class="biz">
+          <div class="lbl" style="color:var(--cpa)">Type 1 · Tax Compliance Focus</div>
+          <h3>Keep your core; let the VFO run business 2</h3>
+          <ul>
+            <li>Stay personally focused on the <b>core compliance "factory"</b></li>
+            <li>Stand up a separate <b>Proactive Planning VFO business</b></li>
+            <li>Leverage the VFO team — a <b>VFO Liaison</b> + <b>Advanced Tax Planner</b></li>
+            <li>Aside from making introductions, you do very little personally</li>
+          </ul>
+        </div>
+        <div class="biz fwd yours">
+          <span class="yours-rib">★ Your profile</span>
+          <div class="lbl">Type 2 · Tax Planning Focus</div>
+          <h3>Planning is core — keep compliance &amp; execution in-house</h3>
+          <ul>
+            <li>Tax &amp; accounting <b>plus</b> proactive planning is your core business</li>
+            <li>You retain <b>compliance and execution</b> — delivering the work yourself</li>
+            <li>Use VFO specialists for <b>advanced strategies &amp; added capacity</b>, not to hand off the client</li>
+            <li>Offer wider VFO services as a clearly separate, <b>extra-fee</b> 2nd business</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cases">
+        <div class="case">
+          <div class="name">Case Study · Type 1 Accountant</div>
+          <h4>"Randall" — compliance-focused</h4>
+          <ul><li>Focuses personally on his core compliance business</li><li>VFO team (Liaison + Advanced Tax Planner) runs the 2nd business</li><li>Did very little beyond making introductions</li></ul>
+          <div class="nums"><div class="num"><div class="v">$40k+</div><div class="k">Holistic &amp; tax-planning fees, 2026</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADVISOR PANEL -->
+    <div class="panel adv" data-tab="adv">
+      <div class="sec-head" style="margin-bottom:16px;"><h2 style="font-size:20px;">How constrained are you by compliance?</h2>
+        <p>For advisors the "2 businesses" idea is more nuanced — what you can do with the VFO (and whether you can take revenue shares) depends on your compliance situation.</p></div>
+      <div class="typecards">
+        <div class="tc adv yours"><span class="yours-rib">★ Your profile</span><span class="badge">Type 1</span><h4>Not Overly Constrained</h4>
+          <p>Can use the VFO <b>and</b> accept revenue shares from it.</p>
+          <ul><li>Business 1: core "factory" (e.g. qualified plans, AUM)</li><li>Business 2: proactive planning "boutique" via VFO</li><li>Markets to existing clients + network of introducers</li></ul>
+          <div class="vfo">Full VFO + revenue share</div>
+        </div>
+        <div class="tc adv"><span class="badge">Type 2</span><h4>Somewhat Constrained</h4>
+          <p>Can use the VFO but <b>cannot always</b> accept revenue shares.</p>
+          <ul><li>Keep core AUM "boring &amp; scalable"</li><li>Advanced Tax Planning as a separate business &amp; team</li><li>Advisor as relationship lead — "orchestrate, don't execute"</li></ul>
+          <div class="vfo">VFO access, separate fees</div>
+        </div>
+        <div class="tc adv"><span class="badge">Type 3</span><h4>Very Constrained</h4>
+          <p>Cannot use the VFO or accept revenue shares directly.</p>
+          <ul><li>Focus on <b>winning new clients</b> for the core business</li><li>Use the Accountant Partnership + VFO team so best clients aren't denied advice</li><li>Benefits indirectly; gains access to accountant clients</li></ul>
+          <div class="vfo">Grow core via partnerships</div>
+        </div>
+      </div>
+
+      <div class="cases">
+        <div class="case">
+          <div class="name">Case Study · Type 1 Advisor</div>
+          <h4>Abraham Cecena</h4>
+          <ul><li>Business 1 — Qualified Plan "Factory" (volume &amp; efficiency)</li><li>Business 2 — Proactive Planning "Boutique" via VFO</li><li>Separate but connected — two value propositions, packaged separately</li></ul>
+          <div class="nums">
+            <div class="num"><div class="v">$97.5k</div><div class="k">Tax planning fees</div></div>
+            <div class="num"><div class="v">$139.4k</div><div class="k">VFO revenues</div></div>
+            <div class="num"><div class="v">$236.9k</div><div class="k">Total since Oct 2025</div></div>
+          </div>
+        </div>
+        <div class="case">
+          <div class="name">Case Study · Type 2 Advisor</div>
+          <h4>Dan Riso</h4>
+          <ul><li>Business 1 — Core Advisory: clean, efficient, AUM-billed</li><li>Business 2 — Advanced Tax Planning: separate fee &amp; team</li><li>"Orchestrate, don't execute" — advisor leads the relationship</li></ul>
+          <div class="nums"><div class="num"><div class="v">$42k</div><div class="k">Tax-planning fees in Q4</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 WAYS TO GROW -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">The Engine</span>
+      <h2>The 4 Ways to Grow Profit</h2>
+      <p>Every member's Vision &amp; Growth Plan is built around these four levers. Where is your key focus?</p>
+    </div>
+    <div class="grid3" style="grid-template-columns:repeat(4,1fr);">
+      <div class="card"><div class="n">1</div><h4>Win New Clients</h4><p>New AUM and engagements — often via accountant partnerships.</p></div>
+      <div class="card"><div class="n">2</div><h4>More Transactions</h4><p>Do more with existing clients through wider VFO services.</p></div>
+      <div class="card"><div class="n">3</div><h4>Increase $ Value</h4><p>Raise the value of each engagement with advanced planning.</p></div>
+      <div class="card"><div class="n">4</div><h4>Get More Efficient</h4><p>Streamline the core "factory" so you can focus on value.</p></div>
+    </div>
+    <div class="note">⚠️ Avoid "jumping 5 feet and charging $3" — price the forward-looking planning business for the value it delivers, separately from the core.</div>
+  </div>
+</section>
+
+<!-- COLLABORATION -->
+<section style="background:linear-gradient(180deg,#fff,#f6f9fd);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Working Together</span>
+      <h2>The Advisor–Accountant Collaboration</h2>
+      <p>The VFO gives you something concrete to offer: 75+ vetted specialists, a structured partnership system, and a proven joint-client process — with revenue sharing on planning fees.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">75+</div><div class="k">VFO specialists across disciplines</div></div>
+      <div class="stat"><div class="v">81</div><div class="k">Avg days to first signed partnership</div></div>
+      <div class="stat"><div class="v">82%</div><div class="k">Accountant meetings advance (Fast Track)</div></div>
+      <div class="stat"><div class="v">3</div><div class="k">Meeting joint-client engagement process</div></div>
+    </div>
+
+    <div class="sec-head" style="margin:30px 0 16px;"><h2 style="font-size:20px;">The 5-Step Accountant Partnership System</h2></div>
+    <div class="steps">
+      <div class="step"><div class="s">Step 1</div><h4>Target</h4><p>Ideal partner: 5–15 years in practice, owner-led, HNW/business clients.</p></div>
+      <div class="step"><div class="s">Step 2</div><h4>Contact</h4><p>Lead with value, not a sales pitch — open with something useful.</p></div>
+      <div class="step"><div class="s">Step 3</div><h4>Engage</h4><p>Three structured conversations: fit → educate on the VFO → plan.</p></div>
+      <div class="step"><div class="s">Step 4</div><h4>Serve</h4><p>Run the joint-client process with the VFO specialist team.</p></div>
+      <div class="step"><div class="s">Step 5</div><h4>Share</h4><p>Revenue sharing on planning fees — aligned, recurring value.</p></div>
+    </div>
+    <div class="note">What accountants want: a trusted partner who cares for their clients, expanded value, real revenue opportunities, and clarity on exactly what happens at introduction.</div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Member Roadmap</span>
+      <h2>From Fast Start to Growth</h2>
+    </div>
+    <div class="roadmap">
+      <div class="rm">
+        <span class="tagn">Step 1 · 90-Day Plan</span>
+        <h3>Build a fast start &amp; confidence</h3>
+        <ul>
+          <li>Master the fundamentals of using the VFO in practice</li>
+          <li>For both advisors &amp; accountants — generate early wins</li>
+          <li>Get comfortable before scaling up</li>
+        </ul>
+      </div>
+      <div class="rm">
+        <span class="tagn">Step 2 · Growth Plan</span>
+        <h3>Set direction, structure &amp; goals</h3>
+        <ul>
+          <li>Build your Vision &amp; Plan around the 4 Ways to Grow</li>
+          <li>Decide your business structure — almost always <b>separating</b> the VFO business</li>
+          <li>Your MSM holds you accountable — the "Desire" ingredient</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section style="background:linear-gradient(180deg,#fff,#f6f9fd);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Go Deeper</span>
+      <h2>Sources &amp; Further Reading</h2>
+      <p>This page is built from Paul Latham's session and the Elite Resource Team library. Download the originals:</p>
+    </div>
+    <div class="srcs">
+      <a class="srcchip deck" href="slides/13-2-businesses-1-roof.pdf" download="13 - 2 Businesses Under 1 Roof.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+        Deck: 2 Businesses Under 1 Roof
+      </a>
+      <a class="srcchip book" href="books/collaboration-playbook.pdf" download="The Advisor & Accountant Collaboration Playbook.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Collaboration Playbook
+      </a>
+      <a class="srcchip book" href="books/advisory-accountant.pdf" download="The Advisory Accountant.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        The Advisory Accountant
+      </a>
+      <a class="srcchip book" href="books/coordinated-planning.pdf" download="How Advisors and Accountants Work Together to Deliver Coordinated Planning.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Coordinated Planning
+      </a>
+      <a class="srcchip book" href="books/installing-a-vfo.pdf" download="The Advisor's Guide to Installing a Virtual Family Office.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Installing a VFO
+      </a>
+    </div>
+    <div class="note">Want the client-facing strategies these businesses deliver? See the <a href="strategies.html">Strategy Library</a> and <a href="personas.html">Client Personas</a>.</div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap row-f">
+    <div>
+      <div class="brand"><span class="mark" style="background:linear-gradient(135deg,#3a8dde,#0b2545)">VFO</span> Elite VFO Collective 2026</div>
+      <small>The largest VFO event in North America · San Diego, California</small>
+    </div>
+    <div style="text-align:right;font-size:14px;">
+      <a href="index.html">← Back to agenda &amp; slide decks</a><br/>
+      <small>Practice growth · hosted on Cloudflare Pages</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    const id = t.dataset.tab;
+    tabs.forEach(x => x.classList.toggle('active', x.dataset.tab === id));
+    panels.forEach(p => p.classList.toggle('active', p.dataset.tab === id));
+  }));
+</script>
+  <script src="nav.js" defer></script>
+</body>
+</html>

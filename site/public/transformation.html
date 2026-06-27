@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>从交易型服务到转化型经济 — AI 时代企业的价值升级</title>
+<meta name="description" content="AI 时代，企业如何从“交易型服务”升级为“转化型经济”。基于 Ron Baker《From Transactions to Transformations》的解读与关键幻灯片。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0b2545;
+    --blue: #13447a;
+    --accent: #1d6fce;
+    --accent-2: #3a8dde;
+    --orange: #e8731c;       /* nods to the Threshold deck accent */
+    --sky: #eaf2fb;
+    --ink: #1b2535;
+    --muted: #5b6b82;
+    --line: #e2e8f2;
+    --bg: #f6f9fd;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(13, 40, 80, 0.08);
+    --shadow-lg: 0 14px 44px rgba(13, 40, 80, 0.14);
+    --cjk: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--cjk);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+  /* Header (shared with site) */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); letter-spacing: .2px; font-family: 'Inter', var(--cjk); }
+  .brand .mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--navy));
+    display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 800;
+  }
+  .nav nav a { color: var(--muted); font-weight: 600; font-size: 14px; margin-left: 20px; font-family: 'Inter', var(--cjk); }
+  .nav nav a:hover, .nav nav a.active { color: var(--accent); }
+  @media (max-width: 760px){ .nav nav a { margin-left: 13px; font-size: 13px; } .brand .label { display: none; } }
+
+  /* Hero */
+  .hero {
+    background: radial-gradient(1200px 520px at 72% -10%, rgba(58,141,222,.35), transparent 60%),
+                linear-gradient(160deg, var(--navy) 0%, var(--blue) 72%);
+    color: #fff; padding: 60px 0 64px; position: relative; overflow: hidden;
+  }
+  .hero:after {
+    content: ""; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+    padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; letter-spacing: .5px;
+    margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(28px, 4.4vw, 46px); line-height: 1.18; margin: 0 0 14px; font-weight: 900; }
+  .hero h1 span { color: var(--accent-2); }
+  .hero p.lede { font-size: clamp(15px, 2vw, 18px); color: #d6e4f5; max-width: 680px; margin: 0 0 8px; line-height: 1.8; }
+  .hero .src { font-size: 13.5px; color: #9fc0e6; margin-top: 16px; font-family: 'Inter', var(--cjk); }
+  .hero .src strong { color: #e6f0fb; font-weight: 700; }
+  .hero .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .hero .btn {
+    display: inline-flex; align-items: center; gap: 9px; font-family: 'Inter', var(--cjk);
+    font-weight: 700; font-size: 15px; padding: 13px 22px; border-radius: 11px; cursor: pointer;
+    border: 1px solid transparent; transition: .18s;
+  }
+  .hero .btn svg { width: 18px; height: 18px; }
+  .hero .btn-dl { background: var(--orange); color: #fff; box-shadow: 0 8px 22px rgba(232,115,28,.42); }
+  .hero .btn-dl:hover { background: #f5852f; transform: translateY(-1px); }
+  .hero .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.28); }
+  .hero .btn-ghost:hover { background: rgba(255,255,255,.16); }
+
+  /* Hero figure (title slide) */
+  .hero-fig { margin-top: 30px; }
+  .hero-fig img {
+    width: 100%; max-width: 720px; display: block; border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.14);
+  }
+
+  /* Article */
+  article { padding: 18px 0 40px; }
+  .col { max-width: 760px; margin: 0 auto; }
+  .toc {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px;
+    box-shadow: var(--shadow); margin: 40px auto 8px; max-width: 760px;
+  }
+  .toc h4 { margin: 0 0 12px; color: var(--navy); font-size: 14px; letter-spacing: .4px; }
+  .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 30px; }
+  .toc li { font-size: 14px; margin: 4px 0; color: var(--muted); }
+  .toc a { color: var(--blue); font-weight: 500; }
+  @media (max-width: 560px){ .toc ol { columns: 1; } }
+
+  .sec { margin-top: 52px; scroll-margin-top: 78px; }
+  .sec .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    color: var(--orange); font-weight: 800; font-size: 13px; letter-spacing: .6px;
+    font-family: 'Inter', var(--cjk); margin-bottom: 6px;
+  }
+  .sec .kicker .no {
+    background: var(--orange); color: #fff; width: 24px; height: 24px; border-radius: 7px;
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
+  }
+  .sec h2 { font-size: clamp(22px, 3vw, 28px); color: var(--navy); font-weight: 700; margin: 4px 0 16px; line-height: 1.4; }
+  .sec p { margin: 0 0 16px; font-size: 16.5px; color: #2b3850; }
+  .sec strong { color: var(--navy); font-weight: 700; }
+  .en { font-family: 'Inter', var(--cjk); font-style: normal; color: var(--blue); font-weight: 600; }
+
+  /* Bullet list as cards-ish */
+  .lst { margin: 4px 0 18px; padding: 0; list-style: none; }
+  .lst li { position: relative; padding-left: 26px; margin: 9px 0; font-size: 16px; color: #2b3850; }
+  .lst li:before {
+    content: ""; position: absolute; left: 4px; top: 12px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--accent-2); transform: rotate(45deg);
+  }
+
+  /* Pull quote */
+  .pull {
+    margin: 26px 0; padding: 22px 26px; border-left: 4px solid var(--orange);
+    background: linear-gradient(100deg, #fff7f0, #fff); border-radius: 0 12px 12px 0;
+    font-size: 19px; font-weight: 600; color: var(--navy); line-height: 1.7;
+    font-family: 'Noto Serif SC', var(--cjk);
+  }
+
+  /* Figure / embedded slide */
+  figure.slide {
+    margin: 34px auto; max-width: 880px; background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow);
+  }
+  figure.slide img { width: 100%; display: block; border-radius: 8px; }
+  figure.slide figcaption {
+    margin-top: 12px; font-size: 13.5px; color: var(--muted); text-align: center; line-height: 1.6;
+  }
+  figure.slide figcaption .lbl {
+    display: inline-block; font-family: 'Inter', var(--cjk); font-weight: 700; color: var(--orange);
+    text-transform: uppercase; letter-spacing: .5px; font-size: 11px; margin-right: 8px;
+    border: 1px solid #f3d3b6; background: #fff6ee; border-radius: 6px; padding: 2px 8px;
+  }
+
+  /* Three-step / become list */
+  .become { display: grid; gap: 10px; margin: 6px 0 18px; }
+  .become .row {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 13px 16px; box-shadow: var(--shadow);
+    font-size: 15.5px;
+  }
+  .become .row .from { color: var(--muted); }
+  .become .row .to { color: var(--navy); font-weight: 700; }
+  .become .row .arr { color: var(--orange); font-weight: 800; font-family: 'Inter', var(--cjk); }
+  @media (max-width: 560px){ .become .row { grid-template-columns: 1fr; gap: 4px; text-align: left; } .become .row .arr { display: none; } }
+
+  /* Closing callout */
+  .closeout {
+    margin: 46px auto 0; max-width: 760px; background: linear-gradient(160deg, var(--navy), var(--blue));
+    color: #eaf2fb; border-radius: 18px; padding: 34px 32px; box-shadow: var(--shadow-lg);
+  }
+  .closeout h3 { margin: 0 0 12px; color: #fff; font-size: 22px; font-weight: 800; }
+  .closeout p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; color: #d6e4f5; }
+  .closeout .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .closeout .grid2 div {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 14px 16px; font-size: 15px;
+  }
+  .closeout .grid2 b { color: #ffd9b8; }
+  @media (max-width: 560px){ .closeout .grid2 { grid-template-columns: 1fr; } }
+
+  /* GPT tool CTA */
+  .gpt-cta {
+    margin: 40px auto 0; max-width: 760px;
+    background:
+      radial-gradient(600px 220px at 88% -30%, rgba(232,115,28,.20), transparent 60%),
+      linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+    color: #fff; border-radius: 18px; padding: 30px 30px; box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+  }
+  .gpt-cta .badge {
+    display:inline-flex; align-items:center; gap:8px; font-family:'Inter',var(--cjk);
+    background: rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3);
+    padding:5px 12px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.4px; margin-bottom:14px;
+  }
+  .gpt-cta .badge svg { width:15px; height:15px; }
+  .gpt-cta h3 { margin:0 0 8px; font-size:22px; font-weight:800; color:#fff; }
+  .gpt-cta p { margin:0 0 18px; font-size:15.5px; line-height:1.75; color:#eafff7; max-width:560px; }
+  .gpt-cta .go {
+    display:inline-flex; align-items:center; gap:9px; font-family:'Inter',var(--cjk); font-weight:800; font-size:15px;
+    background:#fff; color:#0d8f6f; padding:13px 22px; border-radius:11px; transition:.16s; box-shadow:0 8px 22px rgba(0,0,0,.18);
+  }
+  .gpt-cta .go:hover { transform: translateY(-1px); background:#f3fffb; }
+  .gpt-cta .go svg { width:18px; height:18px; }
+
+  .backlink { display:inline-flex; align-items:center; gap:7px; margin-top: 30px; font-family:'Inter',var(--cjk); font-weight:700; font-size:14px; }
+  .backlink svg { width: 16px; height: 16px; }
+
+  footer.site { background: var(--navy); color: #c5d6ec; padding: 40px 0; margin-top: 56px; }
+  footer .row-f { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: center; }
+  footer .brand { color: #fff; }
+  footer a { color: #9fc0e6; }
+  footer small { color: #7f97b6; display:block; margin-top: 6px; }
+
+  @media (prefers-reduced-motion: reduce){ html { scroll-behavior: auto; } }</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">AI 时代的商业价值升级 · 深度解读</span>
+    <h1>从“交易型服务”到<span>“转化型经济”</span></h1>
+    <p class="lede">AI 可以更快地完成任务、压缩交付成本，也在快速商品化传统服务。真正有定价权、有差异化、有客户粘性的企业，卖的不再只是产品、服务，甚至体验，而是帮助客户完成<strong style="color:#fff">真正的转变</strong>——客户最终购买的，是一个更好的自己。</p>
+    <p class="src">解读自 <strong>Ron Baker</strong> 的演讲《From Transactions to Transformations: Where Customers Become, Not Buy》 · Elite VFO Collective 2026 · Day 2</p>
+    <div class="cta-row">
+      <a class="btn btn-dl" href="slides/d2-02-transactions-to-transformations.pdf" download="Ron Baker - From Transactions to Transformations.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下载完整演讲幻灯片 (PDF)
+      </a>
+      <a class="btn btn-ghost" href="#s3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        查看核心框架
+      </a>
+    </div>
+    <div class="hero-fig">
+      <img src="img/transformation/01-title.png" alt="Ron Baker — From Transactions to Transformations: Where Customers Become, Not Buy" loading="eager" />
+    </div>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+
+    <nav class="toc" aria-label="目录">
+      <h4>目录</h4>
+      <ol>
+        <li><a href="#s1">报告背景</a></li>
+        <li><a href="#s2">客户不是来“买”，而是来“成为”</a></li>
+        <li><a href="#s3">经济价值的五层进阶</a></li>
+        <li><a href="#s4">从 Time Saved 到 Time Well Invested</a></li>
+        <li><a href="#s5">AI 放大人的转化能力</a></li>
+        <li><a href="#s6">企业角色：从 Vendor 到 Guide</a></li>
+        <li><a href="#s7">转化是一段旅程，而非一次交易</a></li>
+        <li><a href="#s8">对专业服务企业的启发</a></li>
+        <li><a href="#s9">商业模式上的变化</a></li>
+        <li><a href="#s10">对 AI Native Business 的战略结论</a></li>
+        <li><a href="#s11">总结</a></li>
+      </ol>
+    </nav>
+
+    <div class="col">
+
+      <section class="sec" id="s1">
+        <div class="kicker"><span class="no">一</span> 报告背景</div>
+        <h2>AI 正在快速压缩“交易型服务”的价值</h2>
+        <p>在 AI 快速发展的时代，许多传统业务正面临同一个挑战：过去依靠专业知识、人工流程和信息不对称形成的服务价值，正在被 AI 快速压缩。</p>
+        <p>AI 可以更快地生成报告、整理资料、回答问题、完成表格、制作方案、自动跟进客户，并大幅降低许多服务型工作的交付成本。因此，企业如果仍然停留在“完成任务”“交付服务”“节省时间”的层面，就会越来越容易被替代、被比价、被商品化。</p>
+        <p>Ron Baker 在 <span class="en">From Transactions to Transformations</span> 中提出了一个非常重要的商业趋势：未来真正有定价权、有差异化、有客户粘性的企业，不只是卖产品、卖服务，甚至不只是卖体验，而是要帮助客户完成<strong>真正的转变</strong>。</p>
+        <div class="pull">换句话说，客户最终购买的不是一个服务结果，而是一个更好的自己。</div>
+      </section>
+
+      <section class="sec" id="s2">
+        <div class="kicker"><span class="no">二</span> 核心观点</div>
+        <h2>客户不是来“买”，而是来“成为”</h2>
+        <p>这个 talk 的核心可以总结为一句话：<strong>AI 时代，企业要从“帮客户完成任务”升级为“带客户完成转变”。</strong></p>
+        <p>过去的商业关系更多是 <span class="en">transaction</span>（交易）：客户提出需求，企业完成交付，客户付款，关系结束。但 <span class="en">transformation economy</span> 的逻辑完全不同——客户希望通过与企业合作，变得更健康、更富足、更清醒、更有秩序、更有能力，更接近自己理想中的生活状态。</p>
+        <div class="become">
+          <div class="row"><span class="from">不是只想买一把吉他</span><span class="arr">→</span><span class="to">而是想成为一个会弹吉他的人</span></div>
+          <div class="row"><span class="from">不是只想报一次税</span><span class="arr">→</span><span class="to">而是想成为更懂财务、能掌控税务风险的人</span></div>
+          <div class="row"><span class="from">不是只想买一份保险</span><span class="arr">→</span><span class="to">而是想成为更有安全感、能保护家庭的人</span></div>
+          <div class="row"><span class="from">不是只想拿到退休方案</span><span class="arr">→</span><span class="to">而是想成为对未来现金流更有掌控感的人</span></div>
+        </div>
+        <p>这就是 <span class="en">“Where Customers Become, Not Buy”</span> 的含义。Fender 把产品从“卖吉他”重新定义为“卖音乐能力（Musicianship）”，订阅制 Fender Play 反而让它在 2020–2023 卖出史上最多的吉他。</p>
+        <figure class="slide">
+          <img src="img/transformation/03-fender.png" alt="The Revenue Model — Fender Play：你在让客户为什么付费？" loading="lazy" />
+          <figcaption><span class="lbl">Slide</span> The Revenue Model — 客户付费购买的是“成为一个会弹琴的人”，而非一把吉他；订阅者反而多消费 40%。</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec" id="s3">
+        <div class="kicker"><span class="no">三</span> 核心框架</div>
+        <h2>经济价值的五层进阶</h2>
+        <p>talk 中最重要的框架是 <span class="en">The Progression of Economic Value</span>（经济价值进阶）。企业价值可以分为五个层级，越往上，差异化越强、客户相关性越高、定价权越大：</p>
+        <ul class="lst">
+          <li><strong>Commodities 原材料</strong>——几乎没有差异化，定价能力最低。</li>
+          <li><strong>Goods 产品</strong>——可被比较、复制、替换。</li>
+          <li><strong>Services 服务</strong>——帮助客户节省时间。</li>
+          <li><strong>Experiences 体验</strong>——给客户一段难忘、有感受、有记忆点的过程。</li>
+          <li><strong>Transformations 转变</strong>——帮助客户改变能力、状态、身份与人生轨迹。</li>
+        </ul>
+        <figure class="slide">
+          <img src="img/transformation/02-progression.png" alt="The Progression of Economic Value：Commodities → Goods → Services → Experiences → Transformations" loading="lazy" />
+          <figcaption><span class="lbl">Framework</span> 越往上：竞争地位越“差异化”、与客户需求越相关、定价权越强——从 Time Saved 一路走向 Time Well Invested。</figcaption>
+        </figure>
+        <p>在 AI 时代，<strong>最危险的是停留在 service 层</strong>。因为很多 service 本质上是 <span class="en">task completion</span>：写报告、整理资料、生成方案、做计算、回答问题、跟进流程——这些会越来越容易被 AI 完成。真正难以被替代的，是企业能否理解客户的 <span class="en">aspiration</span>、设计完整的 journey，并持续引导客户完成改变。</p>
+      </section>
+
+      <section class="sec" id="s4">
+        <div class="kicker"><span class="no">四</span> 时间维度</div>
+        <h2>从 Time Saved 到 Time Well Invested</h2>
+        <p>这个框架里还有一个关键的时间维度：</p>
+        <ul class="lst">
+          <li><strong>Time Saved（节省时间）</strong>——传统服务的价值。</li>
+          <li><strong>Time Well Spent（时间花得值得）</strong>——体验经济的价值，过程有感受、有仪式感、有记忆点。</li>
+          <li><strong>Time Well Invested（时间投资到自己身上）</strong>——转化经济的价值，带来长期改变。</li>
+        </ul>
+        <p>服务型企业问：我们有没有帮客户省时间？体验型企业问：客户有没有感受到愉悦、尊重、惊喜和记忆点？转化型企业问：客户合作之后，有没有变得更清楚、更自信、更有能力、更有秩序？</p>
+        <div class="pull">AI 可以极大提高 Time Saved，但真正能创造溢价的是 Time Well Invested。</div>
+      </section>
+
+      <section class="sec" id="s5">
+        <div class="kicker"><span class="no">五</span> AI 的角色</div>
+        <h2>AI 不是简单替代人，而是放大人的转化能力</h2>
+        <p>很多企业谈 AI 时，第一反应是降低成本、减少人工、提升效率。这当然重要，但只是 AI 最浅层的用途。在转化经济里，AI 更重要的角色不是 <span class="en">automation</span>，而是 <span class="en">augmentation</span>——增强人的洞察、判断、设计和陪伴能力。</p>
+        <p><strong>AI 擅长：</strong>收集客户信息、识别潜在需求、整理目标与风险、生成个性化方案、持续追踪进度、提醒下一步、把复杂知识翻译成客户能懂的语言、把专家经验沉淀为可复制的流程。</p>
+        <p><strong>AI 无法替代：</strong>信任关系、价值判断、人生处境理解、关键时刻的决策陪伴、复杂利益冲突中的取舍，以及帮助客户真正 <span class="en">commit</span> 和 <span class="en">follow through</span> 的能力。</p>
+        <p>因此，AI 时代的企业不是要把人从业务中拿掉，而是要让 AI 承担重复性、信息性、流程性的部分，让人更多承担 <span class="en">guide、advisor、coach、architect</span> 的角色。这正是 Ron Baker 的提醒——<strong>把 AI 理解为 Augmented Intelligence（增强智能）</strong>。</p>
+      </section>
+
+      <section class="sec" id="s6">
+        <div class="kicker"><span class="no">六</span> 角色转变</div>
+        <h2>从 Vendor 到 Guide</h2>
+        <p>在传统服务关系中，企业常扮演 <span class="en">vendor</span>（供应商）：客户提需求，企业交付结果。但在转化经济中，企业要成为 <span class="en">guide</span>（引导者）。</p>
+        <div class="become">
+          <div class="row"><span class="from">Vendor 关注“你要买什么”</span><span class="arr">→</span><span class="to">Guide 关注“你想变成什么样”</span></div>
+          <div class="row"><span class="from">Vendor 交付一个结果</span><span class="arr">→</span><span class="to">Guide 设计一段路径</span></div>
+          <div class="row"><span class="from">Vendor 解决眼前问题</span><span class="arr">→</span><span class="to">Guide 帮客户进入新的状态</span></div>
+          <div class="row"><span class="from">Vendor 容易被比价</span><span class="arr">→</span><span class="to">Guide 更容易建立长期信任</span></div>
+        </div>
+        <p>这对专业服务行业尤其重要——税务、保险、理财、地产、法律、咨询、教育、健康管理，本质上都不应只停留在“完成事务”，而应帮助客户完成更深层的状态转变。</p>
+      </section>
+
+      <section class="sec" id="s7">
+        <div class="kicker"><span class="no">七</span> 旅程设计</div>
+        <h2>客户转化不是一次交易，而是一段旅程</h2>
+        <p>talk 中提到的转化路径大致是：客户先生活在 <span class="en">ordinary world</span>（原本状态）→ 产生 <span class="en">aspiration</span>（渴望）→ 经历 <span class="en">hesitation</span>（犹豫）→ <span class="en">meeting the guide</span>（遇到可信赖的引导者）→ <span class="en">commitment</span>（承诺）→ <span class="en">preparation</span>（准备）→ <span class="en">action</span>（行动）→ 经历挫折与调整 → <span class="en">reflection</span>（复盘）→ <span class="en">integration</span>（把改变整合进生活，形成新的习惯、能力与身份）。</p>
+        <p>这说明真正的客户转化不是靠一次销售或一份 proposal 完成的，而是靠一套完整的 <span class="en">journey</span> 设计完成的。企业需要思考：客户意识到问题之前如何教育他？犹豫时如何降低心理阻力？承诺后如何帮他行动？行动后如何帮他复盘和整合？完成初步改变后如何带他进入下一层成长？这正是 AI 系统、内容系统、CRM、顾问流程与社群运营可以共同发挥作用的地方。</p>
+      </section>
+
+      <section class="sec" id="s8">
+        <div class="kicker"><span class="no">八</span> 行业启发</div>
+        <h2>对专业服务企业的启发</h2>
+        <p>对专业服务企业而言，AI 时代最大的风险不是 AI 本身，而是企业仍然把自己定义为“服务交付者”。如果核心价值只是“帮客户做税 / 买保险 / 申请贷款 / 做投资组合 / 买房 / 做文件 / 写方案”，那么这些工作都会越来越容易被 AI 工具、低成本平台或自动化系统压缩。</p>
+        <p>但如果公司重新定义自己——帮助客户从税务焦虑走向长期财富秩序、帮助家庭从风险暴露走向安全感与责任感、帮助高收入客户从资产混乱走向清晰配置、帮助创业者从财务混乱走向经营纪律——那么企业就不再只是 <span class="en">service provider</span>，而是 <span class="en">transformation partner</span>。这才是 AI 时代更有生命力的定位。</p>
+        <figure class="slide">
+          <img src="img/transformation/04-spheres.png" alt="Spheres of transformation：Human Flourishing — Health & Wellbeing, Wealth & Prosperity, Wisdom & Understanding, Purpose & Meaning" loading="lazy" />
+          <figcaption><span class="lbl">Slide</span> 转化的四个领域（Spheres of Transformation）围绕 <em>Human Flourishing</em>：健康、财富、智慧、意义——“如果一门生意不能帮人 flourish，那它就是一场骗局。”（B. Joseph Pine）</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec" id="s9">
+        <div class="kicker"><span class="no">九</span> 商业模式</div>
+        <h2>商业模式上的变化</h2>
+        <p>如果企业要进入转化经济，商业模式也需要调整：</p>
+        <ul class="lst">
+          <li><strong>产品设计</strong>不按服务项目分类，而按客户想完成的<strong>转变</strong>分类。</li>
+          <li><strong>收费方式</strong>不只按时间或任务，而体现结果、路径和长期陪伴价值。</li>
+          <li><strong>客户关系</strong>不止于成交前后，而延伸到教育、承诺、执行、复盘和整合。</li>
+          <li><strong>AI 系统</strong>不只是提高内部效率，而成为客户转化旅程的一部分。</li>
+          <li><strong>内容营销</strong>不只解释产品功能，而持续唤醒客户的 <span class="en">aspiration</span>。</li>
+        </ul>
+        <div class="become">
+          <div class="row"><span class="from">“税务申报服务”</span><span class="arr">→</span><span class="to">“高收入家庭税务秩序计划”</span></div>
+          <div class="row"><span class="from">“保险 quote 服务”</span><span class="arr">→</span><span class="to">“年轻家庭风险补齐路径”</span></div>
+          <div class="row"><span class="from">“退休规划服务”</span><span class="arr">→</span><span class="to">“未来现金流安全感系统”</span></div>
+        </div>
+        <figure class="slide">
+          <img src="img/transformation/05-types.png" alt="Transformation types：Ambition, Metamorphosis, Refinement, Cultivation" loading="lazy" />
+          <figcaption><span class="lbl">Slide</span> 转化的类型——按“改变的规模 × 改变的性质”划分：合规走向顾问、被动税务走向财富秩序，都是可被设计与定价的转变。</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec" id="s10">
+        <div class="kicker"><span class="no">十</span> 战略结论</div>
+        <h2>对 AI Native Business 的战略结论</h2>
+        <p>AI 时代，企业要 <span class="en">survive</span> 必须提高效率；但要 <span class="en">thrive</span>，必须提高客户转化能力。只做效率优化，最多是降低成本；只有帮助客户转变，才能建立差异化、信任感和定价权。</p>
+        <div class="pull">最终，AI 会 commoditize task，但也会 amplify transformation。<br/>会被 AI 取代的是只会完成任务的人；会被 AI 放大的是能够带人改变的人。</div>
+        <figure class="slide">
+          <img src="img/transformation/07-pricing.png" alt="Common offerings command common prices. Uncommon offerings command uncommon prices." loading="lazy" />
+          <figcaption><span class="lbl">Slide</span> 普通的供给只能拿到普通的价格；不普通的供给才有不普通的定价权——而至少 84% 的人只在复制，而非创新。</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec" id="s11">
+        <div class="kicker"><span class="no">十一</span> 总结</div>
+        <h2>从 Transaction 到 Transformation</h2>
+        <p>这个 talk 对 AI 时代企业最大的启发是：企业不能再只问“我们能为客户做什么”，而要问“<strong>我们能帮助客户变成什么样</strong>”。从 transaction 到 transformation，是商业价值的升级，也是专业服务行业在 AI 时代重新建立护城河的关键。</p>
+        <p>未来最有竞争力的公司，不一定是 AI 工具最多的公司，而是最懂客户 <span class="en">aspiration</span>、最会设计转化路径、最能把 AI 与人类判断结合起来的公司。</p>
+        <figure class="slide">
+          <img src="img/transformation/06-takeaways.png" alt="Key Take-aways for Immediate Implementation" loading="lazy" />
+          <figcaption><span class="lbl">Action</span> 立即可落地的四点：① 从“提供服务”转向“引导转变”；② 用时间进阶视角设计产品；③ 找到你的转化领域（健康 / 财富 / 智慧 / 意义）；④ 把 AI 当作 Augmented Intelligence。</figcaption>
+        </figure>
+      </section>
+
+      <div class="gpt-cta">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3 3 3 0 0 1 3 3 3 3 0 0 1 0 6 3 3 0 0 1-3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3 3 3 0 0 1 0-6 3 3 0 0 1 3-3 3 3 0 0 1 3-3z"/></svg>
+          AI 工具 · Custom GPT
+        </span>
+        <h3>Transformation Example Generator</h3>
+        <p>想把“服务”重新表述为“转变”？用这个 GPT 输入你的业务或客户场景，它会基于 Ron Baker 的 <span style="font-family:'Inter',var(--cjk);font-weight:700">Transformation Example Generator</span> 框架，帮你生成「从 X → 成为 Y」的转化型定位、转化领域与旅程要点——把本页的理念直接变成可落地的语言。</p>
+        <a class="go" href="https://chatgpt.com/g/g-689502b2bae881918aa795efe2e64c5b-transformation-example-generator" target="_blank" rel="noopener">
+          打开 Transformation Example Generator
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <div class="closeout">
+        <h3>分工，决定护城河</h3>
+        <p><b>AI</b> 负责速度、规模和信息处理。<br/><b>人</b> 负责信任、意义、判断和陪伴。<br/><b>系统</b> 负责把转化路径持续复制和优化。</p>
+        <div class="grid2">
+          <div>会被价格战困住的，是普通服务。</div>
+          <div><b>会获得长期定价权的，是转化型企业。</b></div>
+        </div>
+      </div>
+
+      <a class="backlink" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        返回 Elite VFO Collective 2026
+      </a>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site">
+  <div class="wrap row-f">
+    <div>
+      <div class="brand"><span class="mark" style="background:linear-gradient(135deg,#3a8dde,#0b2545)">VFO</span> Elite VFO Collective 2026</div>
+      <small>幻灯片来源：Ron Baker《From Transactions to Transformations》· Threshold</small>
+    </div>
+    <div style="text-align:right;font-size:14px;">
+      <a href="https://thresholdnow.com" target="_blank" rel="noopener">thresholdnow.com</a><br/>
+      <small>解读页面 · 托管于 Cloudflare Pages</small>
+    </div>
+  </div>
+</footer>
+
+  <script src="nav.js" defer></script>
+</body>
+</html>

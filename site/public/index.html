@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elite VFO Collective 2026 — Agenda &amp; Slide Decks</title>
+<meta name="description" content="Agenda and downloadable slide decks for the Elite VFO Collective 2026 — the largest VFO event in North America. June 24–26, 2026, San Diego, CA." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0b2545;
+    --blue: #13447a;
+    --accent: #1d6fce;
+    --accent-2: #3a8dde;
+    --sky: #eaf2fb;
+    --ink: #1b2535;
+    --muted: #5b6b82;
+    --line: #e2e8f2;
+    --bg: #f6f9fd;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(13, 40, 80, 0.08);
+    --shadow-lg: 0 14px 44px rgba(13, 40, 80, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); letter-spacing: .2px; }
+  .brand .mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--navy));
+    display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 800;
+  }
+  .nav nav a { color: var(--muted); font-weight: 600; font-size: 14px; margin-left: 20px; }
+  .nav nav a:hover, .nav nav a.active { color: var(--accent); }
+  @media (max-width: 680px){ .nav nav a { margin-left: 13px; font-size: 13px; } .brand .label { display: none; } }
+
+  /* Hero */
+  .hero {
+    background: radial-gradient(1200px 500px at 70% -10%, rgba(58,141,222,.35), transparent 60%),
+                linear-gradient(160deg, var(--navy) 0%, var(--blue) 70%);
+    color: #fff; padding: 64px 0 72px; position: relative; overflow: hidden;
+  }
+  .hero:after {
+    content: ""; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+    padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(30px, 5vw, 50px); line-height: 1.07; margin: 0 0 14px; font-weight: 800; }
+  .hero h1 span { color: var(--accent-2); }
+  .hero p.lede { font-size: clamp(16px, 2vw, 19px); color: #d6e4f5; max-width: 640px; margin: 0 0 26px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px; }
+  .fact {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px; padding: 12px 16px; min-width: 150px;
+  }
+  .fact .k { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #9fc0e6; font-weight: 600; }
+  .fact .v { font-size: 15px; font-weight: 700; margin-top: 2px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 15px;
+    padding: 13px 22px; border-radius: 11px; cursor: pointer; border: 1px solid transparent; transition: .18s;
+  }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-primary { background: var(--accent-2); color: #fff; box-shadow: 0 8px 22px rgba(29,111,206,.4); }
+  .btn-primary:hover { background: #4f9be6; transform: translateY(-1px); }
+  .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.28); }
+  .btn-ghost:hover { background: rgba(255,255,255,.16); }
+
+  /* Sections */
+  section { padding: 58px 0; }
+  .sec-head { margin-bottom: 30px; }
+  .sec-head .tag { color: var(--accent); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .8px; }
+  .sec-head h2 { font-size: clamp(24px, 3.4vw, 33px); margin: 6px 0 8px; color: var(--navy); font-weight: 800; }
+  .sec-head p { color: var(--muted); margin: 0; max-width: 640px; }
+
+  /* Day tabs */
+  .day-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+  .day-tab {
+    border: 1px solid var(--line); background: #fff; color: var(--muted); font-weight: 700; font-size: 14px;
+    padding: 11px 18px; border-radius: 999px; cursor: pointer; transition: .16s; font-family: inherit;
+  }
+  .day-tab .d { display: block; font-size: 11px; font-weight: 600; color: #9aa9bd; margin-top: 1px; }
+  .day-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: var(--shadow); }
+  .day-tab.active .d { color: #9fc0e6; }
+
+  .day-panel { display: none; }
+  .day-panel.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px);} to { opacity:1; transform: none; } }
+
+  /* Agenda rows */
+  .agenda { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .row { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 16px 20px; border-top: 1px solid var(--line); }
+  .row:first-child { border-top: none; }
+  .row .time { font-weight: 800; color: var(--accent); font-size: 14px; padding-top: 1px; white-space: nowrap; }
+  .row .title { font-weight: 700; color: var(--ink); font-size: 15.5px; }
+  .row .who { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .row.break { background: var(--sky); }
+  .row.break .title { color: var(--blue); font-weight: 600; }
+  .pill { display:inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing:.4px;
+    background: var(--sky); color: var(--accent); border-radius: 6px; padding: 2px 7px; margin-left: 7px; vertical-align: middle; }
+  .pill.cpe { background: #eafaf0; color: #1f9d57; }
+  @media (max-width: 560px){ .row { grid-template-columns: 74px 1fr; padding: 14px; gap: 12px; } }
+
+  /* Slides grid */
+  .deck-day {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 15px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .6px;
+    margin: 34px 0 16px;
+  }
+  .deck-day:first-of-type { margin-top: 6px; }
+  .deck-day .when { font-weight: 600; font-size: 13px; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .deck-day:after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px;
+    display: flex; flex-direction: column; transition: .18s; box-shadow: var(--shadow);
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: #cfe0f4; }
+  .card .top { display: flex; align-items: flex-start; gap: 12px; }
+  .card .icon {
+    flex: 0 0 42px; width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--sky), #dceafa); color: var(--accent);
+  }
+  .card .icon svg { width: 22px; height: 22px; }
+  .card .num { font-size: 11px; font-weight: 700; color: #9aa9bd; letter-spacing: .5px; }
+  .card h3 { font-size: 16px; margin: 2px 0 4px; color: var(--navy); line-height: 1.25; font-weight: 700; }
+  .card .spk { color: var(--muted); font-size: 13px; }
+  .card .foot { margin-top: 16px; display: flex; align-items: center; justify-content: space-between; }
+  .card .size { font-size: 12px; color: #9aa9bd; font-weight: 600; }
+  .dl {
+    display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 13.5px; color: #fff;
+    background: var(--accent); padding: 9px 15px; border-radius: 9px; transition: .16s;
+  }
+  .dl:hover { background: var(--navy); }
+  .dl svg { width: 15px; height: 15px; }
+  .toggle {
+    display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; color: var(--accent);
+    background: var(--sky); border: 1px solid #d8e6f7; padding: 8px 13px; border-radius: 9px; cursor: pointer;
+    font-family: inherit; transition: .16s;
+  }
+  .toggle:hover { background: #dceafa; }
+  .toggle svg { width: 14px; height: 14px; transition: transform .22s ease; }
+  .card.open .toggle svg { transform: rotate(180deg); }
+  .detail { max-height: 0; overflow: hidden; transition: max-height .32s ease; }
+  .card.open .detail { max-height: 760px; }
+  .detail-inner { padding-top: 16px; margin-top: 16px; border-top: 1px dashed var(--line); }
+  .detail-inner .block { margin-bottom: 14px; }
+  .detail-inner .block:last-child { margin-bottom: 0; }
+  @media (min-width: 720px){
+    .card.open .detail { max-height: 480px; }
+    .detail-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px 28px; }
+    .detail-inner .block-summary { grid-column: 1 / -1; }
+  }
+  .detail-inner .lbl {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 6px; margin-bottom: 5px;
+  }
+  .detail-inner .lbl svg { width: 13px; height: 13px; }
+  .detail-inner p { margin: 0; font-size: 13.5px; color: var(--ink); line-height: 1.5; }
+  .detail-inner .bio { color: var(--muted); }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--blue);
+    background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px 11px; text-decoration: none;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip svg { width: 13px; height: 13px; color: var(--accent); }
+
+  /* Info / footer */
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+  .info-card { background:#fff; border:1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .info-card h4 { margin: 0 0 6px; color: var(--navy); font-size: 16px; }
+  .info-card p { margin: 0; color: var(--muted); font-size: 14px; }
+  .note { font-size: 12.5px; color: var(--muted); margin-top: 20px; padding: 14px 16px; background: var(--sky); border-radius: 10px; border:1px solid #d8e6f7; }
+
+  footer.site { background: var(--navy); color: #c5d6ec; padding: 40px 0; margin-top: 10px; }
+  footer .row-f { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: center; }
+  footer .brand { color: #fff; }
+  footer a { color: #9fc0e6; }
+  footer small { color: #7f97b6; display:block; margin-top: 6px; }</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">The Largest VFO Event in North America</span>
+    <h1>Elite VFO Collective <span>2026</span></h1>
+    <p class="lede">For accountants &amp; advisors to collaborate and learn how to expand high-value services. Your complete agenda and downloadable Day 1 &amp; Day 2 slide decks, all in one place.</p>
+    <div class="facts">
+      <div class="fact"><div class="k">Dates</div><div class="v">June 24–26, 2026</div></div>
+      <div class="fact"><div class="k">Location</div><div class="v">San Diego, California</div></div>
+      <div class="fact"><div class="k">Venue</div><div class="v">The Westin Gaslamp Quarter</div></div>
+      <div class="fact"><div class="k">Sessions</div><div class="v">30+ across 3 days</div></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="2026-VFO-Collective-Agenda.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Full Agenda (PDF)
+      </a>
+      <a class="btn btn-ghost" href="#slides">Browse Slide Decks</a>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Schedule</span>
+      <h2>Event Agenda</h2>
+      <p>Three days of sessions, panels, and breakouts. Select a day to view the full schedule.</p>
+    </div>
+
+    <div class="day-tabs" role="tablist">
+      <button class="day-tab active" data-day="0">Fusion Mastermind<span class="d">June 24</span></button>
+      <button class="day-tab" data-day="1">General Session · Day 1<span class="d">June 25</span></button>
+      <button class="day-tab" data-day="2">General Session · Day 2<span class="d">June 26</span></button>
+    </div>
+
+    <!-- Day 0: Fusion -->
+    <div class="day-panel active" data-day="0">
+      <div class="agenda">
+        <div class="row"><div class="time">8:00 AM</div><div><div class="title">Check-In &amp; Breakfast</div></div></div>
+        <div class="row"><div class="time">9:00 AM</div><div><div class="title">Opening Comments</div><div class="who">Anton Anderson &amp; Jena Wilson, Elite Resource Team</div></div></div>
+        <div class="row"><div class="time">9:50 AM</div><div><div class="title">The Biology of High Performance: The Hidden Drivers of Energy, Focus &amp; Leadership</div><div class="who">Dr. Tracy Gapin, Peak Launch</div></div></div>
+        <div class="row break"><div class="time">10:40 AM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">10:55 AM</div><div><div class="title">Panel: Building a VFO Driven Company</div><div class="who">Carson Grover, Gabriel Martin, Michael Simms &amp; Sterling Hirsch</div></div></div>
+        <div class="row"><div class="time">11:25 AM</div><div><div class="title">Private, Institutional-Grade Currency Trading: Diversification Beyond Traditional Markets</div><div class="who">Jared Yellin, Vestige Capital, LLC</div></div></div>
+        <div class="row break"><div class="time">12:15 PM</div><div><div class="title">Lunch</div></div></div>
+        <div class="row"><div class="time">1:30 PM</div><div><div class="title">Inside the Tax Plan: How a Taxpayer Turns Business Income Into Wealth</div><div class="who">Tim Gacsy, Elite Resource Team</div></div></div>
+        <div class="row"><div class="time">2:00 PM</div><div><div class="title">The Enterprise Value Conversation: Driving Growth, Wealth &amp; Opportunity</div><div class="who">Deborah Snyder, Greg Maddox, Ken Smith, Jen McAllister &amp; Joe LoPresti</div></div></div>
+        <div class="row break"><div class="time">2:50 PM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">3:10 PM</div><div><div class="title">Case Study: When Strategy Needs the Right Team Around It</div><div class="who">Jen McAllister &amp; Sterling Hirsch</div></div></div>
+        <div class="row"><div class="time">4:00 PM</div><div><div class="title">Fusion Cocktail Hour</div></div></div>
+      </div>
+      <div class="note">The Fusion Mastermind Day is a private gathering for Fusion members and their guests. For more information, email <a href="mailto:support@elitert.com">support@elitert.com</a>.</div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-panel" data-day="1">
+      <div class="agenda">
+        <div class="row"><div class="time">7:30 AM</div><div><div class="title">Check-In &amp; Breakfast</div></div></div>
+        <div class="row"><div class="time">8:15 AM</div><div><div class="title">Opening Comments</div><div class="who">Anton Anderson &amp; Jena Wilson, Elite Resource Team</div></div></div>
+        <div class="row"><div class="time">9:00 AM</div><div><div class="title">Estate Planning 201: Advanced Planning for Business Owners &amp; HNW Families <span class="pill">CE</span></div><div class="who">Nic Sasso, Dinsmore &amp; Shohl, LLP</div></div></div>
+        <div class="row"><div class="time">9:50 AM</div><div><div class="title">Federal Tax Treatment: Film Production Investments <span class="pill">CE</span></div><div class="who">Kyle Fox, The Fox Financial Network</div></div></div>
+        <div class="row break"><div class="time">10:40 AM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">10:55 AM</div><div><div class="title">Earn Your Seat At The Owner's Table: How Wealth Advisors Win with Value Acceleration</div><div class="who">Deborah Snyder &amp; Greg Maddox, Cultivate Advisors</div></div></div>
+        <div class="row"><div class="time">10:55 AM</div><div><div class="title">Oil &amp; Gas Drilling Fund &amp; QOZ 2.0: Tax Advantaged Wealth Creation <span class="pill">CE</span> <span class="pill">Breakout</span></div><div class="who">Todd Lofgren, Alternative Tax Management</div></div></div>
+        <div class="row"><div class="time">11:50 AM</div><div><div class="title">The Truth About Cost Segregation <span class="pill">CE</span></div><div class="who">Heidi Henderson, Engineered Tax Services</div></div></div>
+        <div class="row"><div class="time">11:50 AM</div><div><div class="title">GFX/Leveraged Entity Ownership Strategy: High Income or Capital Gains Tax Mitigation <span class="pill">CE</span> <span class="pill">Breakout</span></div><div class="who">Michael Simms, Veracity Advisors</div></div></div>
+        <div class="row break"><div class="time">12:40 PM</div><div><div class="title">Lunch &amp; Book Signing: The Science of Running a VFO &amp; Building Accountant Partnerships</div></div></div>
+        <div class="row"><div class="time">1:50 PM</div><div><div class="title">Rothish: Premium Financing Made Easy</div><div class="who">Darren Sugiyama, Lionsmark Capital, LLC</div></div></div>
+        <div class="row"><div class="time">1:50 PM</div><div><div class="title">Advanced Charitable Tax Planning: Framework, Applications &amp; Case Studies <span class="pill">CE</span> <span class="pill">Breakout</span></div><div class="who">Carson Grover, Innovation Advisory Group</div></div></div>
+        <div class="row break"><div class="time">2:40 PM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">2:55 PM</div><div><div class="title">Solar as a Tax Strategy: Beyond Tax Credits &amp; Into Wealth Creation <span class="pill">CE</span></div><div class="who">Justin Draplin, Fortified Solar</div></div></div>
+        <div class="row"><div class="time">2:55 PM</div><div><div class="title">Modern Qualified Plans: Custom Tax Minimization Strategies <span class="pill">CE</span> <span class="pill">Breakout</span></div><div class="who">Bruce Gendein, McHenry Advisers Inc</div></div></div>
+        <div class="row"><div class="time">3:50 PM</div><div><div class="title">Who Killed the Company? A Cybersecurity Murder Mystery</div><div class="who">Will Foret &amp; Justin Neagle, Spot Migration</div></div></div>
+        <div class="row"><div class="time">3:50 PM</div><div><div class="title">2 Businesses Under 1 Roof: The Hidden Opportunity Within Your Practice <span class="pill">Breakout</span></div><div class="who">Paul Latham, Elite Resource Team</div></div></div>
+        <div class="row"><div class="time">4:40 PM</div><div><div class="title">Awards Ceremony &amp; Cocktail Hour to Follow</div></div></div>
+      </div>
+      <div class="note">Day 1 slide decks are available to download below in the <a href="#slides">Slide Decks</a> section.</div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-panel" data-day="2">
+      <div class="agenda">
+        <div class="row"><div class="time">8:00 AM</div><div><div class="title">Breakfast</div></div></div>
+        <div class="row"><div class="time">8:00 AM</div><div><div class="title">CPR Training with San Diego Cardiac <span class="pill">Breakout</span></div></div></div>
+        <div class="row"><div class="time">8:45 AM</div><div><div class="title">From Transactions to Transformations: Where Customers Become, Not Buy</div><div class="who">Ron Baker, Threshold</div></div></div>
+        <div class="row"><div class="time">9:45 AM</div><div><div class="title">VFO Portal: The AI Powered Solution to Running Your VFO</div><div class="who">Anton Anderson &amp; Paul Latham, Elite Resource Team</div></div></div>
+        <div class="row break"><div class="time">10:40 AM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">10:55 AM</div><div><div class="title">Panel: Accountant &amp; Advisor Success</div><div class="who">Missy Dennis, Monika Hengesbach, Nick Gardner, Paul Carmona, Stacey Andres &amp; Steven Cox</div></div></div>
+        <div class="row"><div class="time">11:50 AM</div><div><div class="title">Powerful Concepts Made Stronger with Risk Mitigation For Your Clients</div><div class="who">Ken Smith, Assurance Ally</div></div></div>
+        <div class="row"><div class="time">11:50 AM</div><div><div class="title">Time's Up! The Subscription Business Model for Professionals <span class="pill">Breakout</span></div><div class="who">Ron Baker, Threshold</div></div></div>
+        <div class="row break"><div class="time">12:40 PM</div><div><div class="title">Lunch</div></div></div>
+        <div class="row"><div class="time">1:40 PM</div><div><div class="title">Securing Your Firm's Future: Succession Planning Insights for Accountants &amp; Advisors</div><div class="who">Todd Steinberg, Thrive Financial Group</div></div></div>
+        <div class="row"><div class="time">1:40 PM</div><div><div class="title">Modern Energy Storage Tax Planning: A VFO Due Diligence Framework <span class="pill">CE</span> <span class="pill">Breakout</span></div><div class="who">Steven Cox, SDP, LLC</div></div></div>
+        <div class="row"><div class="time">2:35 PM</div><div><div class="title">How To Sell Tax Plans without Becoming a Sales Representative</div><div class="who">Anton Anderson, Evan Anderson &amp; Tim Gacsy, Elite Resource Team</div></div></div>
+        <div class="row break"><div class="time">3:25 PM</div><div><div class="title">Break</div></div></div>
+        <div class="row"><div class="time">3:35 PM</div><div><div class="title">Turning Opportunities Into Outcomes: Making The Most of The VFO Model</div><div class="who">Evan Anderson, Ian Welham, Jake Latham, Rachael Hopson, Sarah Freitas, Tim Gacsy &amp; Tracy Miller</div></div></div>
+        <div class="row"><div class="time">4:00 PM</div><div><div class="title">Closing Comments &amp; Raffle</div></div></div>
+      </div>
+      <div class="note">Sessions marked <span class="pill">CE</span> are eligible for IRS Continuing Education credit for Enrolled Agents. 16 CPE / 16 CFP® / 7.5 IRS CE credits available. NASBA Sponsor ID: 148257.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDES -->
+<section id="slides" style="background:linear-gradient(180deg,#fff, #f6f9fd);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Downloads</span>
+      <h2>Slide Decks</h2>
+      <p>Download the presentation slides from each General Session talk. Click any card for the talk summary, speaker bio and contact details.</p>
+    </div>
+    <h3 class="deck-day">Day 1 <span class="when">General Session · June 25</span></h3>
+    <div class="grid" id="slidesGrid"></div>
+    <h3 class="deck-day">Day 2 <span class="when">General Session · June 26</span></h3>
+    <div class="grid" id="slidesGrid2"></div>
+    <div class="note">Looking for the complete schedule? <a href="2026-VFO-Collective-Agenda.pdf" download>Download the full event agenda PDF →</a></div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Plan Your Visit</span>
+      <h2>Event Information</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><h4>📅 Dates</h4><p>June 25–26, 2026 (General Sessions)<br/>Fusion Mastermind Day: June 24, 2026</p></div>
+      <div class="info-card"><h4>📍 Venue</h4><p>The Westin Gaslamp Quarter<br/>910 Broadway Cir, San Diego, CA 92101<br/>(619) 239-2200</p></div>
+      <div class="info-card"><h4>🎓 Credits</h4><p>16 CPE for CPAs · 16 CFP® CE<br/>7.5 IRS CE · EA credits available</p></div>
+      <div class="info-card"><h4>✉️ Questions</h4><p>Contact the Elite Resource Team at <a href="mailto:support@elitert.com">support@elitert.com</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap row-f">
+    <div>
+      <div class="brand"><span class="mark" style="background:linear-gradient(135deg,#3a8dde,#0b2545)">VFO</span> Elite VFO Collective 2026</div>
+      <small>The largest VFO event in North America · San Diego, California</small>
+    </div>
+    <div style="text-align:right;font-size:14px;">
+      <a href="https://elitert.com/elite-vfo-collective" target="_blank" rel="noopener">elitert.com/elite-vfo-collective</a><br/>
+      <small>Agenda &amp; slide decks hosted on Cloudflare Pages</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Day tabs
+  const tabs = document.querySelectorAll('.day-tab');
+  const panels = document.querySelectorAll('.day-panel');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    const d = tab.dataset.day;
+    tabs.forEach(t => t.classList.toggle('active', t === tab));
+    panels.forEach(p => p.classList.toggle('active', p.dataset.day === d));
+  }));
+
+  // Slide decks
+  const decks = [
+    {n:"01", t:"Opening Comments", s:"Anton Anderson &amp; Jena Wilson", f:"slides/01-opening-comments.pdf", dl:"01 - Opening Comments.pdf",
+      summary:"Welcome and opening framing for the Collective — the Virtual Family Office (VFO) model, why single-service firms are becoming obsolete, and how accountants &amp; advisors collaborate to expand high-value services.",
+      bio:"Anton Anderson — Founder/CEO of Elite Resource Team; began at Smith Barney (2003), co-founded SPL Financial and sold it in 2014 to launch ERT; multiple-time bestselling author of <em>The Science of Running a Virtual Family Office</em>. Jena Wilson — Senior Director at ERT (financial services since 2014), who helped launch HaydenRock Solutions.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]},
+    {n:"02", t:"Estate Planning 201", s:"Nic Sasso · Dinsmore &amp; Shohl", f:"slides/02-estate-planning-201.pdf", dl:"02 - Estate Planning 201.pdf",
+      summary:"Advanced estate planning for business owners and high-net-worth families — trust structures, wealth transfer and gifting, and the valuation &amp; substantiation issues that make a plan hold up. <strong>IRS CE eligible.</strong>",
+      bio:"Nic Sasso — Attorney with Dinsmore &amp; Shohl LLP, a full-service national law firm advising businesses and high-net-worth families on estate and tax matters.",
+      web:"dinsmore.com", url:"https://www.dinsmore.com", contacts:[{type:"email", v:"Nic.sasso@dinsmore.com"},{type:"phone", v:"(619) 255-0860"}]},
+    {n:"03", t:"Film Production Investments", s:"Kyle Fox · Fox Global Capital", f:"slides/03-film-production-investments.pdf", dl:"03 - Film Production Investments.pdf",
+      summary:"Federal tax treatment of film production investments — IRC §181 expensing, §168 bonus depreciation, at-risk (§465) and passive-activity (§469) limits, economic-substance considerations and state film credits — for tax-advantaged, risk-mitigated exposure to A-list films. <strong>IRS CE eligible.</strong>",
+      bio:"Kyle Fox — Founder of Fox Financial Partners / Fox Global Capital and former Global Head of Capital Markets at H.I.G. Capital, with a global network of institutional relationships across media and entertainment finance.",
+      web:"foxfinancialpartners.com", url:"https://foxfinancialpartners.com", contacts:[{type:"email", v:"support@elitert.com", note:"via Elite Resource Team"}]},
+    {n:"04", t:"Earn Your Seat At The Owner's Table", s:"Deborah Snyder &amp; Greg Maddox · Cultivate Advisors", f:"slides/04-earn-your-seat.pdf", dl:"04 - Earn Your Seat At The Owners Table.pdf",
+      summary:"How wealth advisors win with value acceleration — engaging owners years before a liquidity event, building an advisor ecosystem, and turning enterprise-value growth into new AUM. Includes a this-week / 30-day / 90-day action plan.",
+      bio:"Deborah Snyder &amp; Greg Maddox — Advisors with Cultivate Advisors, a business-advisory firm that partners 1:1 with owners on value, growth and exit readiness (since 2013).",
+      web:"cultivateadvisors.com", url:"https://cultivateadvisors.com", contacts:[]},
+    {n:"05", t:"Oil &amp; Gas Drilling Fund &amp; QOZ 2.0", s:"Todd Lofgren · Alternative Tax Management", f:"slides/05-oil-gas-qoz.pdf", dl:"05 - Oil & Gas Drilling Fund & QOZ 2.0.pdf",
+      summary:"Tax-advantaged wealth creation through oil &amp; gas drilling funds and Qualified Opportunity Zone (QOZ 2.0) structures — intangible drilling deductions and alternative-asset diversification benchmarked against public markets. <strong>IRS CE eligible.</strong>",
+      bio:"Todd Lofgren — Managing Director, Alternative Tax Management, specializing in tax-advantaged alternative investments for advisors and their clients.",
+      web:"alternativetaxmanagement.com", url:"https://alternativetaxmanagement.com", contacts:[{type:"email", v:"tlofgren@alternativetm.com"},{type:"phone", v:"(484) 802-1744"}]},
+    {n:"06", t:"The Truth About Cost Segregation", s:"Heidi Henderson · Engineered Tax Services", f:"slides/06-cost-segregation.pdf", dl:"06 - The Truth About Cost Segregation.pdf",
+      summary:"The truth about cost segregation — how engineering-based studies accelerate depreciation, and how it layers with bonus depreciation, 1031 exchanges, PACE financing and specialty tax incentives. <strong>IRS CE eligible.</strong>",
+      bio:"Heidi Henderson — CMO &amp; Senior Tax Consultant at Engineered Tax Services (since 2012) and Partner at Engineered Insurance Services; Master's in Accountancy, ~30 years' experience, and host of the Slash Tax Podcast.",
+      web:"engineeredtaxservices.com", url:"https://www.engineeredtaxservices.com", contacts:[]},
+    {n:"07", t:"GFX/Leveraged Entity Ownership Strategy", s:"Michael Simms · Veracity Advisers", f:"slides/07-gfx-leveraged-entity.pdf", dl:"07 - GFX Leveraged Entity Ownership Strategy.pdf",
+      summary:"A leveraged entity ownership (GFX) strategy for mitigating tax on high ordinary income or capital gains — an IRC §704(b)-compliant structure with a 13+ year track record — plus the CPA/advisor referral &amp; onboarding process. <strong>IRS CE eligible.</strong>",
+      bio:"Michael Simms — Veracity Advisers, working with referral CPAs and financial advisors on advanced entity-ownership and tax-mitigation strategies for high-income clients.",
+      web:"veracityadvisers.com", url:"https://www.veracityadvisers.com", contacts:[{type:"email", v:"info@veracityadvisers.com"},{type:"phone", v:"(561) 472-0815"}]},
+    {n:"08", t:"Rothish: Premium Financing Made Easy", s:"Darren Sugiyama · Lionsmark Capital", f:"slides/08-rothish-premium-financing.pdf", dl:"08 - Rothish Premium Financing.pdf",
+      summary:"“Rothish” — making premium-financed life insurance simple, using custom loan structures as a Roth-like, tax-advantaged wealth and liquidity strategy for high-net-worth clients.",
+      bio:"Darren Sugiyama — Founder &amp; CEO of Lionsmark Capital (2016), one of the most recognized premium-financing intermediaries (partnerships with 19 lenders and A-rated carriers) and a 13-time author.",
+      web:"lionsmarkcapital.com", url:"https://lionsmarkcapital.com", contacts:[]},
+    {n:"09", t:"Advanced Charitable Tax Planning", s:"Carson Grover · Innovation Advisory Group", f:"slides/09-charitable-tax-planning.pdf", dl:"09 - Advanced Charitable Tax Planning.pdf",
+      summary:"Advanced charitable tax planning — the federal tax framework, practical applications and case studies — emphasizing proactive planning, layering with other strategies, and the importance of valuation and substantiation. <strong>IRS CE eligible.</strong>",
+      bio:"Carson Grover — Innovation Advisory Group / Wealth Innovation Group (Logan, UT); a financial planner for business owners focused on proactive tax and exit planning.",
+      web:"wealthig.com", url:"https://wealthig.com", contacts:[]},
+    {n:"10", t:"Solar as a Tax Strategy", s:"Justin Draplin · Fortified Solar", f:"slides/10-solar-tax-strategy.pdf", dl:"10 - Solar as a Tax Strategy.pdf",
+      summary:"Solar as a tax strategy — moving beyond the tax credit into compliant structures that deliver measurable returns, tax efficiency and long-term asset protection. <strong>IRS CE eligible.</strong>",
+      bio:"Justin Draplin — Fortified Solar; helps advisors guide clients into compliant solar investment structures that combine tax efficiency with real returns.",
+      web:"fortifiedsolar.com", url:"https://fortifiedsolar.com", contacts:[{type:"email", v:"hello@fortifiedsolar.com"}]},
+    {n:"11", t:"Modern Qualified Plans", s:"Bruce Gendein · McHenry Advisers", f:"slides/11-modern-qualified-plans.pdf", dl:"11 - Modern Qualified Plans.pdf",
+      summary:"Modern qualified plans for custom tax minimization — using life insurance inside qualified plans and repositioning into ILIT/SLAT structures for retirement tax minimization and legacy planning, illustrated with case examples. <strong>IRS CE eligible.</strong>",
+      bio:"Bruce Gendein — McHenry Advisers Inc, designing custom qualified-plan and tax-minimization strategies for business owners and high-net-worth families.",
+      web:"mchenry-advisers.com", url:"https://mchenry-advisers.com", contacts:[{type:"email", v:"info@mchenry-advisers.com"},{type:"phone", v:"(614) 927-0909"}]},
+    {n:"12", t:"Who Killed the Company? Cybersecurity", s:"Will Foret &amp; Justin Neagle · Spot Migration", f:"slides/12-cybersecurity-murder-mystery.pdf", dl:"12 - Who Killed the Company.pdf",
+      summary:"A cybersecurity “murder mystery” — an interactive walkthrough of how firms get breached and the practical defenses every advisory &amp; accounting practice needs to protect clients and stay in business.",
+      bio:"Will Foret — Co-founder of Spot Migration (Chicago, 2013), an IT support &amp; cybersecurity firm; podcast host and speaker focused on protecting professional-services firms. Presenting with Justin Neagle.",
+      web:"spotmigration.com", url:"https://spotmigration.com", contacts:[]},
+    {n:"13", t:"2 Businesses Under 1 Roof", s:"Paul Latham · Elite Resource Team", f:"slides/13-2-businesses-1-roof.pdf", dl:"13 - 2 Businesses Under 1 Roof.pdf",
+      summary:"The hidden opportunity within your advisory &amp; accounting practice — running two complementary businesses under one roof, with a 90-day growth plan to structure and capture it.",
+      bio:"Paul Latham — Co-Founder of Elite Resource Team; a Chartered Accountant and serial entrepreneur who helped build and sell Lathams Chartered Accountants for $45M, and a bestselling author.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]}
+  ];
+
+  const decksDay2 = [
+    {n:"01", t:"Opening Comments", s:"Anton Anderson &amp; Paul Latham · Elite Resource Team", f:"slides/d2-01-opening-comments.pdf", dl:"Day 2 - 01 Opening Comments.pdf",
+      summary:"Day 2 opening — framing the General Session: collaboration and teamwork across the VFO model, and what to expect from a day spanning business transformation, the VFO Portal, succession, risk mitigation and tax planning.",
+      bio:"Anton Anderson — Founder/CEO of Elite Resource Team and CEO of VFO Services; bestselling author of <em>The Science of Running a Virtual Family Office</em>. Paul Latham — Co-Founder of Elite Resource Team; a Chartered Accountant who helped build and sell Lathams Chartered Accountants for $45M.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]},
+    {n:"02", t:"From Transactions to Transformations", s:"Ron Baker · Threshold", f:"slides/d2-02-transactions-to-transformations.pdf", dl:"Day 2 - 02 From Transactions to Transformations.pdf",
+      summary:"Where customers become, not buy — why the future of professional services is <em>guiding transformations</em> rather than delivering services. Pine &amp; Gilmore's Progression of Economic Value, the four spheres of transformation (Healthy, Wealthy, Wise, Meaning), and reframing AI as <em>Augmented</em> Intelligence. Common offerings command common prices; uncommon offerings command uncommon prices.",
+      bio:"Ron Baker — Co-Founder of Threshold and founder of the VeraSage Institute; a leading thinker on value pricing, the subscription model and moving from selling time to creating customer transformations. Co-host of <em>The Soul of Enterprise</em> and author of multiple books.",
+      web:"thresholdnow.com", url:"https://thresholdnow.com", contacts:[{type:"email", v:"ron@thresholdnow.com"}]},
+    {n:"03", t:"VFO Portal: The AI Powered Solution", s:"Anton Anderson &amp; Paul Latham · Elite Resource Team", f:"slides/d2-03-vfo-portal-ai.pdf", dl:"Day 2 - 03 VFO Portal AI Powered Solution.pdf",
+      summary:"A single, modern, AI-driven platform built to serve all four VFO stakeholders — Members, Clients, Specialists and VFO Services. The vision, plan and roadmap: member &amp; specialist onboarding, the 90-day training &amp; accountability tracker, CIQ 3.0 and the One Page Plan, the AES-256 encrypted Client Vault, the VFO Showroom, and what's coming through 2026–27 (joint meetings, pre-populated forms, OCR + AI in the Vault).",
+      bio:"Anton Anderson — Founder/CEO of Elite Resource Team and CEO of VFO Services. Paul Latham — Co-Founder of Elite Resource Team; Chartered Accountant, serial entrepreneur and bestselling author.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]},
+    {n:"04", t:"Panel: Accountant &amp; Advisor Success", s:"Missy Dennis, Monika Hengesbach, Nick Gardner, Paul Carmona, Stacey Andres &amp; Steven Cox", f:"slides/d2-04-panel-accountant-advisor-success.pdf", dl:"Day 2 - 04 Panel Accountant & Advisor Success.pdf",
+      summary:"A practitioner panel on what's actually working — how accountants and advisors are winning new clients, deepening relationships and building durable, collaborative VFO practices.",
+      bio:"A panel of accountants and advisors active in the VFO model — Missy Dennis, Monika Hengesbach, Nick Gardner, Paul Carmona, Stacey Andres and Steven Cox — sharing lessons from their own practices.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]},
+    {n:"05", t:"Powerful Concepts Made Stronger with Risk Mitigation", s:"Ken Smith · Assurance Ally", f:"slides/d2-05-risk-mitigation.pdf", dl:"Day 2 - 05 Risk Mitigation.pdf",
+      summary:"Advanced planning that goes far beyond the standard policy — risk-mitigation strategies illustrated through real case designs: Rothish premium financing (a dentist's $1.4M practice), personal-goodwill &amp; charitable PIF on a $40M practice sale ($4.2M tax saved), and modern qualified plans. Plus the Client Navigation Questionnaire that surfaces 50+ strategies hiding in your existing book.",
+      bio:"Ken Smith — Assurance Ally, an IMO built for the VFO model: 70+ carrier relationships, 50+ advanced planning strategies, 10+ years operating in the VFO model, with an in-house advanced case-design team, underwriter and dedicated Advisor Success Managers.",
+      web:"Assurance Ally", contacts:[{type:"email", v:"support@elitert.com", note:"via Elite Resource Team"}]},
+    {n:"06", t:"Time's Up! The Subscription Business Model", s:"Ron Baker · Threshold", f:"slides/d2-06-subscription-business-model.pdf", dl:"Day 2 - 06 Subscription Business Model.pdf",
+      summary:"The subscription business model for professionals. Recurring vs. reoccurring revenue, the KPIs that run a subscription practice (MRR, ACV, CLV, CAC, churn), pricing the <em>portfolio</em> instead of the services, the medieval prebend as a model for endowing the role rather than the ritual, and the language shift from clients to members.",
+      bio:"Ron Baker — Co-Founder of Threshold and founder of the VeraSage Institute; a leading voice on value pricing and the subscription model for professional firms, and co-host of <em>The Soul of Enterprise</em>.",
+      web:"thresholdnow.com", url:"https://thresholdnow.com", contacts:[{type:"email", v:"ron@thresholdnow.com"}]},
+    {n:"07", t:"Securing Your Firm's Future: Succession Planning", s:"Todd Steinberg · Thrive Financial Group", f:"slides/d2-07-succession-planning.pdf", dl:"Day 2 - 07 Succession Planning.pdf",
+      summary:"Many firms have never been more valuable — and succession has never been more challenging. The three forces reshaping the profession (aging ownership, talent shortages, record buyer demand), why internal succession is breaking down, today's buyer landscape (PE rollups, RIAs &amp; consolidators), illustrative valuation ranges, and the value killers you can fix before going to market.",
+      bio:"Todd Steinberg — Founder &amp; Managing Partner of Thrive Financial Group, a firm 100% focused on accounting-firm transactions: understanding firm value, transition readiness, identifying qualified buyers and structuring successful deals.",
+      web:"thrivefinancialgrp.com", url:"https://www.thrivefinancialgrp.com", contacts:[{type:"email", v:"todd@thrivefinancialgrp.com"},{type:"phone", v:"(609) 870-8116"}]},
+    {n:"08", t:"Modern Energy Storage Tax Planning", s:"Steven Cox · SDP, LLC", f:"slides/d2-08-energy-storage-tax.pdf", dl:"Day 2 - 08 Modern Energy Storage Tax Planning.pdf",
+      summary:"An educational due-diligence framework for modern energy-storage tax planning — evaluated through four pillars: tax efficiency, capital efficiency, implementation complexity and exit flexibility. How investment tax credits, accelerated depreciation and credit carrybacks to prior years work, the IRS requirements that must hold (5-year holding, material participation, at-risk basis), and what can go wrong. <strong>IRS CE eligible.</strong>",
+      bio:"Steven Cox — presents a planning &amp; due-diligence lens (not a product pitch) on how sophisticated advisors evaluate modern energy-storage tax structures, emphasizing CPA modeling over enthusiasm.",
+      web:"SDP, LLC", contacts:[{type:"email", v:"support@elitert.com", note:"via Elite Resource Team"}]},
+    {n:"09", t:"How To Sell Tax Plans (Without Becoming a Sales Rep)", s:"Anton Anderson, Evan Anderson &amp; Tim Gacsy · VFO Services", f:"slides/d2-09-how-to-sell-tax-plans.pdf", dl:"Day 2 - 09 How To Sell Tax Plans.pdf",
+      summary:"Selling tax planning without becoming a sales representative — the VFO 6-step tax-planning process, who qualifies ($500k+ AGI / $100k+ liability), the Tax Risk Mindset scale, ROI framing, and a layered strategy stack (Augusta Rule, family employment, advanced combo plan, tax-credit investment). Real results: $4.27M in combined planning fees + revenue share, now available to all members.",
+      bio:"Anton Anderson — CEO, Elite Resource Team &amp; VFO Services. Evan Anderson — Proactive Facilitator, VFO Services. Tim Gacsy — CPA, PFS, MBA, MBT, CGMA; Director of Advanced Tax Planning, VFO Services.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]},
+    {n:"10", t:"Turning Opportunities Into Outcomes &amp; Closing", s:"VFO Services Team · Closing by Anton Anderson", f:"slides/d2-10-turning-opportunities-outcomes.pdf", dl:"Day 2 - 10 Turning Opportunities Into Outcomes.pdf",
+      summary:"Making the most of the VFO model — the VFO Services team on turning opportunities into client outcomes, followed by closing comments and the raffle.",
+      bio:"The VFO Services team — Evan Anderson, Ian Welham, Jake Latham, Rachael Hopson, Sarah Freitas, Tracy Miller &amp; Tim Gacsy — with closing comments from Anton Anderson, CEO of Elite Resource Team.",
+      web:"elitert.com", url:"https://www.elitert.com", contacts:[{type:"email", v:"support@elitert.com"}]}
+  ];
+  const fileIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  const dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  const sumIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>';
+  const bioIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  const mailIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>';
+  const phoneIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+  const globeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+
+  const chip = (c) => {
+    if (c.type === 'email') return `<a class="chip" href="mailto:${c.v}">${mailIcon}${c.v}${c.note ? ' <span style="color:var(--muted);font-weight:500">('+c.note+')</span>' : ''}</a>`;
+    if (c.type === 'phone') return `<a class="chip" href="tel:${c.v.replace(/[^0-9+]/g,'')}">${phoneIcon}${c.v}</a>`;
+    return '';
+  };
+
+  // Company chip links out when a URL is known; otherwise shows the firm name as plain text.
+  const companyChip = (d) => d.url
+    ? `<a class="chip" href="${d.url}" target="_blank" rel="noopener">${globeIcon}${d.web}</a>`
+    : `<span class="chip">${globeIcon}${d.web}</span>`;
+
+  const renderDecks = (arr, mountId) => {
+    const grid = document.getElementById(mountId);
+    grid.innerHTML = arr.map(d => `
+      <div class="card">
+        <div class="top">
+          <div class="icon">${fileIcon}</div>
+          <div>
+            <div class="num">SESSION ${d.n}</div>
+            <h3>${d.t}</h3>
+            <div class="spk">${d.s}</div>
+          </div>
+        </div>
+        <div class="detail">
+          <div class="detail-inner">
+            <div class="block block-summary">
+              <div class="lbl">${sumIcon} Talk Summary</div>
+              <p>${d.summary}</p>
+            </div>
+            <div class="block">
+              <div class="lbl">${bioIcon} Speaker</div>
+              <p class="bio">${d.bio}</p>
+            </div>
+            <div class="block">
+              <div class="lbl">${globeIcon} Company &amp; Contact</div>
+              <div class="contact-row">
+                ${companyChip(d)}
+                ${d.contacts.map(chip).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <button class="toggle" type="button">Details ${chevron}</button>
+          <a class="dl" href="${d.f}" download="${d.dl}">${dlIcon} Download</a>
+        </div>
+      </div>`).join('');
+
+    grid.querySelectorAll('.toggle').forEach(btn => {
+      btn.addEventListener('click', () => btn.closest('.card').classList.toggle('open'));
+    });
+  };
+
+  renderDecks(decks, 'slidesGrid');
+  renderDecks(decksDay2, 'slidesGrid2');
+</script>
+  <script src="nav.js" defer></script>
+</body>
+</html>

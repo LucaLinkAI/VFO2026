@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Books &amp; Guides | Elite VFO Collective 2026</title>
+<meta name="description" content="Download the Elite Resource Team library of advisor & accountant guides — Virtual Family Office, advanced tax planning, collaboration playbooks, and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:#0b2545; --blue:#13447a; --accent:#1d6fce; --accent-2:#3a8dde;
+    --sky:#eaf2fb; --ink:#1b2535; --muted:#5b6b82; --line:#e2e8f2; --bg:#f6f9fd; --white:#fff;
+    --radius:14px; --shadow:0 6px 24px rgba(13,40,80,.08); --shadow-lg:0 14px 44px rgba(13,40,80,.14);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
+    background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent); text-decoration:none; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 22px; }
+
+  header.site { position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line); }
+  .nav { display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--navy); letter-spacing:.2px; }
+  .brand .mark { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--navy));
+    display:grid; place-items:center; color:#fff; font-size:14px; font-weight:800; }
+  .nav nav a { color:var(--muted); font-weight:600; font-size:14px; margin-left:20px; }
+  .nav nav a:hover, .nav nav a.active { color:var(--accent); }
+  @media (max-width:680px){ .nav nav a { margin-left:13px; font-size:13px; } .brand .label{ display:none; } }
+
+  .hero { background: radial-gradient(1200px 500px at 70% -10%, rgba(58,141,222,.35), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--blue) 70%); color:#fff; padding:54px 0 60px; position:relative; overflow:hidden; }
+  .hero:after { content:""; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E"); pointer-events:none; }
+  .hero .wrap { position:relative; z-index:1; }
+  .eyebrow { display:inline-block; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+    padding:6px 14px; border-radius:999px; font-size:12.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:16px; }
+  .hero h1 { font-size:clamp(28px,4.6vw,44px); line-height:1.08; margin:0 0 12px; font-weight:800; }
+  .hero p.lede { font-size:clamp(15px,2vw,18px); color:#d6e4f5; max-width:680px; margin:0; }
+
+  section { padding:50px 0; }
+  .sec-head { margin-bottom:26px; }
+  .sec-head .tag { color:var(--accent); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.8px; }
+  .sec-head h2 { font-size:clamp(22px,3.2vw,30px); margin:6px 0 8px; color:var(--navy); font-weight:800; }
+  .sec-head p { color:var(--muted); margin:0; max-width:680px; }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr)); gap:18px; }
+  .book { display:flex; gap:16px; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; box-shadow:var(--shadow); transition:.18s; }
+  .book:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:#cfe0f4; }
+  .cover { flex:0 0 84px; width:84px; height:112px; border-radius:8px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg,var(--blue),var(--navy)); box-shadow:0 8px 18px rgba(11,37,69,.28);
+    display:flex; flex-direction:column; justify-content:space-between; padding:9px 9px 8px; }
+  .cover:before { content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:rgba(255,255,255,.22); }
+  .cover .ert { font-size:7px; letter-spacing:.8px; font-weight:800; color:#9fc0e6; text-transform:uppercase; }
+  .cover .ct { font-size:9.5px; font-weight:700; line-height:1.18; color:#fff; }
+  .cover .brandmark { font-size:7px; font-weight:700; color:rgba(255,255,255,.6); letter-spacing:.5px; }
+  .book .body { display:flex; flex-direction:column; min-width:0; }
+  .book h3 { margin:0 0 5px; font-size:16px; color:var(--navy); font-weight:700; line-height:1.25; }
+  .book .sub { font-size:13px; color:var(--muted); margin:0 0 12px; }
+  .book .foot { margin-top:auto; display:flex; align-items:center; gap:10px; }
+  .dl { display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:13px; color:#fff;
+    background:var(--accent); padding:9px 14px; border-radius:9px; transition:.16s; }
+  .dl:hover { background:var(--navy); }
+  .dl svg { width:14px; height:14px; }
+  .ext { display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:13px; color:var(--blue);
+    background:#eef3fa; border:1px solid var(--line); padding:9px 14px; border-radius:9px; transition:.16s; }
+  .ext:hover { background:#e1ebf7; color:var(--accent); }
+  .ext svg { width:14px; height:14px; }
+  .meta { font-size:11.5px; color:#9aa9bd; font-weight:600; }
+
+  .note { font-size:12.5px; color:var(--muted); margin-top:22px; padding:14px 16px; background:var(--sky); border-radius:10px; border:1px solid #d8e6f7; }
+
+  footer.site { background:var(--navy); color:#c5d6ec; padding:40px 0; margin-top:10px; }
+  footer .row-f { display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center; }
+  footer .brand { color:#fff; }
+  footer a { color:#9fc0e6; }
+  footer small { color:#7f97b6; display:block; margin-top:6px; }</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Elite Resource Team Library</span>
+    <h1>Books &amp; Guides</h1>
+    <p class="lede">The complete library of advisor &amp; accountant guides — Virtual Family Office, advanced tax planning, and collaboration playbooks. Download the PDF, or open the original on elitert.com.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Free Downloads</span>
+      <h2>Download the Guides</h2>
+      <p>Click <strong>Download PDF</strong> for any title. Books not available as a direct PDF here link to the original page on elitert.com.</p>
+    </div>
+    <div class="grid" id="booksGrid"></div>
+    <div class="note">All guides are published by <a href="https://elitert.com/books" target="_blank" rel="noopener">Elite Resource Team → elitert.com/books</a>. PDFs are hosted here on Cloudflare and download as files.</div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap row-f">
+    <div>
+      <div class="brand"><span class="mark" style="background:linear-gradient(135deg,#3a8dde,#0b2545)">VFO</span> Elite VFO Collective 2026</div>
+      <small>The largest VFO event in North America · San Diego, California</small>
+    </div>
+    <div style="text-align:right;font-size:14px;">
+      <a href="index.html">← Back to agenda &amp; slide decks</a><br/>
+      <small>Books &amp; guides · hosted on Cloudflare Pages</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  const extIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+  const books = [
+    {t:"The Rockefeller Blueprint", sub:"A modern advisor's guide to building a Virtual Family Office amid the $30T great wealth migration.", f:"books/rockefeller-blueprint.pdf", dl:"The Rockefeller Blueprint.pdf", pages:11},
+    {t:"The Advisor's Guide to Installing a Virtual Family Office", sub:"Add 75+ specialists to your practice and generate new revenue from existing clients in 45 days or less.", f:"books/installing-a-vfo.pdf", dl:"The Advisor's Guide to Installing a Virtual Family Office.pdf", pages:11},
+    {t:"The Independent Financial Advisor's Guide to Advanced Tax Planning", sub:"Unlock new revenue streams through Virtual Family Office collaboration and proactive tax planning.", f:"books/advanced-tax-planning.pdf", dl:"The Independent Financial Advisor's Guide to Advanced Tax Planning.pdf", pages:29},
+    {t:"The Advisor &amp; Accountant Collaboration Playbook", sub:"Build accountant partnerships that deliver qualified introductions year after year.", f:"books/collaboration-playbook.pdf", dl:"The Advisor & Accountant Collaboration Playbook.pdf", pages:8},
+    {t:"How Advisors &amp; Accountants Work Together to Deliver Coordinated Planning", sub:"How advisors partner with accountants to build trust and create wins for clients.", f:"books/coordinated-planning.pdf", dl:"How Advisors and Accountants Work Together to Deliver Coordinated Planning.pdf", pages:12},
+    {t:"The Advisory Accountant", sub:"How to serve clients better and earn more — moving beyond compliance into advisory work.", f:"books/advisory-accountant.pdf", dl:"The Advisory Accountant - How to Serve Clients Better and Earn More.pdf", pages:9},
+    {t:"How Advisors Can Identify Hidden Planning Gaps for High-Earning W2 Professionals", sub:"Serve the underserved market of $250K+ executives, physicians, and tech professionals with RSUs.", f:"books/w2-planning-gaps.pdf", dl:"How Advisors Can Identify Hidden Planning Gaps for High-Earning W2 Professionals.pdf", pages:12},
+    {t:"The Big Beautiful Bill: What Every Advisor Needs to Know", sub:"Turn the complexity of the One Big Beautiful Bill Act of 2025 into client wins and revenue opportunities.", f:"books/big-beautiful-bill.pdf", dl:"The Big Beautiful Bill - What Every Advisor Needs to Know.pdf", pages:10},
+    {t:"The Art of Proactivity", sub:"Published by Elite Resource Team — read on elitert.com.", ext:"https://elitert.com/books/the-art-of-proactivity"},
+    {t:"The Art of Collaboration", sub:"Published by Elite Resource Team — read on elitert.com.", ext:"https://elitert.com/books/the-art-of-collaboration"},
+    {t:"How Financial Advisors Can Optimize Their Life and Business", sub:"Published by Elite Resource Team — read on elitert.com.", ext:"https://elitert.com/free-download-optimize-life-and-business"}
+  ];
+
+  const coverHTML = (b) => `<div class="cover"><div class="ert">Elite Resource Team</div><div class="ct">${b.t.replace(/&amp;/g,'&').slice(0,52)}</div><div class="brandmark">VFO · GUIDE</div></div>`;
+
+  document.getElementById('booksGrid').innerHTML = books.map(b => `
+    <div class="book">
+      ${coverHTML(b)}
+      <div class="body">
+        <h3>${b.t}</h3>
+        <p class="sub">${b.sub}</p>
+        <div class="foot">
+          ${b.ext
+            ? `<a class="ext" href="${b.ext}" target="_blank" rel="noopener">${extIcon} Read on elitert.com</a>`
+            : `<a class="dl" href="${b.f}" download="${b.dl}">${dlIcon} Download PDF</a><span class="meta">PDF · ${b.pages} pp</span>`}
+        </div>
+      </div>
+    </div>`).join('');
+</script>
+  <script src="nav.js" defer></script>
+</body>
+</html>

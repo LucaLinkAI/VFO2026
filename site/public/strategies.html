@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Strategy Library | Elite VFO Collective 2026</title>
+<meta name="description" content="Every tax, wealth, and planning strategy referenced across the VFO Collective 2026 talks and the Elite Resource Team books — organized by category and tagged by client persona, with source downloads." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:#0b2545; --blue:#13447a; --accent:#1d6fce; --accent-2:#3a8dde;
+    --sky:#eaf2fb; --ink:#1b2535; --muted:#5b6b82; --line:#e2e8f2; --bg:#f6f9fd; --white:#fff;
+    --radius:14px; --shadow:0 6px 24px rgba(13,40,80,.08); --shadow-lg:0 14px 44px rgba(13,40,80,.14);
+    --bo:#0d7a4f; --bo-bg:#e7f7ef; --w2:#7a3ec9; --w2-bg:#f1eafc;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
+    background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent); text-decoration:none; }
+  .wrap { max-width:1320px; margin:0 auto; padding:0 22px; }
+
+  header.site { position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line); }
+  .nav { display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--navy); letter-spacing:.2px; }
+  .brand .mark { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--navy));
+    display:grid; place-items:center; color:#fff; font-size:14px; font-weight:800; }
+  .nav nav a { color:var(--muted); font-weight:600; font-size:14px; margin-left:20px; }
+  .nav nav a:hover, .nav nav a.active { color:var(--accent); }
+  @media (max-width:680px){ .nav nav a { margin-left:13px; font-size:13px; } .brand .label{ display:none; } }
+
+  .hero { background: radial-gradient(1200px 500px at 70% -10%, rgba(58,141,222,.35), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--blue) 70%); color:#fff; padding:50px 0 56px; position:relative; overflow:hidden; }
+  .hero:after { content:""; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E"); pointer-events:none; }
+  .hero .wrap { position:relative; z-index:1; }
+  .eyebrow { display:inline-block; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+    padding:6px 14px; border-radius:999px; font-size:12.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:16px; }
+  .hero h1 { font-size:clamp(28px,4.6vw,44px); line-height:1.08; margin:0 0 12px; font-weight:800; }
+  .hero p.lede { font-size:clamp(15px,2vw,18px); color:#d6e4f5; max-width:720px; margin:0; }
+
+  section { padding:42px 0 56px; }
+
+  /* Filters */
+  /* Sidebar layout */
+  .layout { display:grid; grid-template-columns:248px 1fr; gap:26px; align-items:start; }
+  .sidebar { position:sticky; top:78px; }
+  .sidebar-inner { background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; }
+  .fgroup + .fgroup { margin-top:16px; padding-top:16px; border-top:1px dashed var(--line); }
+  .flabel { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); margin-bottom:11px; display:block; }
+  .catlist { display:flex; flex-direction:column; gap:6px; }
+  .chipbtn { border:1px solid var(--line); background:#fff; color:var(--muted); font-weight:600; font-size:13px;
+    padding:9px 13px; border-radius:9px; cursor:pointer; transition:.15s; font-family:inherit; text-align:left; width:100%; line-height:1.3; }
+  .chipbtn:hover { border-color:#bcd3ef; color:var(--accent); background:var(--sky); }
+  .chipbtn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .chipbtn.bo.active { background:var(--bo); border-color:var(--bo); }
+  .chipbtn.w2.active { background:var(--w2); border-color:var(--w2); }
+  .searchwrap { position:relative; }
+  .searchwrap svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:15px; height:15px; color:#9aa9bd; }
+  .search { width:100%; font-family:inherit; font-size:13.5px; color:var(--ink); border:1px solid var(--line);
+    border-radius:9px; padding:10px 32px 10px 34px; background:#fff; transition:.15s; }
+  .search:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(29,111,206,.12); }
+  .clearbtn { position:absolute; right:8px; top:50%; transform:translateY(-50%); border:none; background:#eef3fa; color:var(--muted);
+    width:22px; height:22px; border-radius:50%; cursor:pointer; font-size:14px; line-height:1; display:none; }
+  .clearbtn:hover { background:#e1ebf7; color:var(--accent); }
+  .count { font-size:13px; color:var(--muted); margin-bottom:16px; font-weight:600; }
+  .count b { color:var(--navy); }
+  @media (max-width:860px){
+    .layout { grid-template-columns:1fr; gap:18px; }
+    .sidebar { position:static; }
+    .fgroup + .fgroup { margin-top:14px; }
+    .catlist { flex-direction:row; flex-wrap:wrap; }
+    .chipbtn { width:auto; border-radius:999px; }
+  }
+
+  .strat { position:relative; }
+  .heat { position:absolute; top:14px; right:14px; display:inline-flex; align-items:center; gap:4px;
+    font-size:10.5px; font-weight:700; color:var(--blue); background:var(--sky); border:1px solid #d8e6f7;
+    padding:3px 8px; border-radius:999px; }
+  .heat svg { width:11px; height:11px; }
+  .heat.hot { color:#b9770a; background:#fff7e8; border-color:#f0dcb4; }
+  .strat h3 { padding-right:74px; }
+  mark { background:#fff3b0; color:inherit; border-radius:3px; padding:0 1px; }
+
+  .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:15px; }
+  @media (max-width:1180px){ .grid { grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:680px){ .grid { grid-template-columns:1fr; } }
+  .strat { background:#fff; border:1px solid var(--line); border-radius:13px; padding:16px 17px 14px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; transition:.16s; }
+  .strat:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); border-color:#cfe0f4; }
+  .strat .cat { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--accent); margin-bottom:6px; }
+  .strat h3 { margin:0 0 7px; font-size:16px; color:var(--navy); font-weight:700; line-height:1.25; }
+  .strat .d { font-size:13px; color:var(--muted); margin:0 0 12px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .tag { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:999px; letter-spacing:.3px; }
+  .tag.bo { color:var(--bo); background:var(--bo-bg); }
+  .tag.w2 { color:var(--w2); background:var(--w2-bg); }
+  .src { margin-top:auto; padding-top:12px; border-top:1px dashed var(--line); display:flex; flex-wrap:wrap; gap:7px; }
+  .srcchip { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; padding:5px 10px; border-radius:8px;
+    border:1px solid var(--line); text-decoration:none; transition:.14s; }
+  .srcchip.talk { color:var(--accent); background:var(--sky); border-color:#d8e6f7; }
+  .srcchip.talk:hover { background:#dceafa; }
+  .srcchip.book { color:var(--blue); background:#eef3fa; }
+  .srcchip.book:hover { background:#e1ebf7; color:var(--accent); }
+  .srcchip svg { width:12px; height:12px; }
+  .referral { margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+  .reflbl { font-size:10px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:5px; margin-bottom:7px; }
+  .reflbl svg { width:12px; height:12px; }
+  .refname { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .refname span { display:block; font-size:11.5px; font-weight:500; color:var(--muted); }
+  .refchips { display:flex; flex-wrap:wrap; gap:6px; }
+  .rchip { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; color:var(--blue);
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:5px 9px; text-decoration:none; transition:.14s; }
+  .rchip:hover { border-color:var(--accent); color:var(--accent); }
+  .rchip.web { color:var(--accent); background:var(--sky); border-color:#d8e6f7; }
+  .rchip svg { width:12px; height:12px; color:var(--accent); }
+
+  .empty { text-align:center; color:var(--muted); padding:40px; font-size:14px; display:none; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:16px; margin-top:18px; font-size:12.5px; color:var(--muted); }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+
+  .disclaimer { font-size:12.5px; color:var(--muted); margin-top:24px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-radius:10px; }
+
+  footer.site { background:var(--navy); color:#c5d6ec; padding:40px 0; margin-top:10px; }
+  footer .row-f { display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center; }
+  footer .brand { color:#fff; }
+  footer a { color:#9fc0e6; }
+  footer small { color:#7f97b6; display:block; margin-top:6px; }</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Advisor Reference</span>
+    <h1>Strategy Library</h1>
+    <p class="lede">Every tax, wealth, and planning strategy referenced across the VFO Collective 2026 talks and the Elite Resource Team books — organized by category, tagged by client persona, and linked to its source for download.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <div class="fgroup">
+            <span class="flabel">Search</span>
+            <div class="searchwrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input id="search" class="search" type="text" placeholder="Search strategies…" autocomplete="off" />
+              <button class="clearbtn" id="clearBtn" aria-label="Clear search">×</button>
+            </div>
+          </div>
+          <div class="fgroup">
+            <span class="flabel">Category</span>
+            <div class="catlist" id="catRow"></div>
+          </div>
+          <div class="fgroup">
+            <span class="flabel">Persona</span>
+            <div class="catlist" id="perRow"></div>
+          </div>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="count" id="count"></div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty">No strategies match these filters.</div>
+
+        <div class="legend">
+          <span><span class="dot" style="background:var(--bo)"></span> Business Owner — high cash flow / income</span>
+          <span><span class="dot" style="background:var(--w2)"></span> W-2 Professional — appreciated stock &amp; RSU</span>
+        </div>
+
+        <div class="disclaimer">
+          ⚠️ <b>Educational reference — not tax or legal advice.</b> Strategy suitability depends on each client's facts; several carry eligibility rules (passive activity §469, at-risk §465, material participation, W-2 vs. capital-gain treatment). Sources link to the speaker slide deck or Elite Resource Team book where the strategy appears.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap row-f">
+    <div>
+      <div class="brand"><span class="mark" style="background:linear-gradient(135deg,#3a8dde,#0b2545)">VFO</span> Elite VFO Collective 2026</div>
+      <small>The largest VFO event in North America · San Diego, California</small>
+    </div>
+    <div style="text-align:right;font-size:14px;">
+      <a href="index.html">← Back to agenda &amp; slide decks</a><br/>
+      <small>Strategy library · hosted on Cloudflare Pages</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Elite Resource Team — default referral for book-sourced strategies
+  const ERT = {who:"Elite Resource Team", co:"Elite Resource Team", web:"elitert.com", url:"https://www.elitert.com", email:"support@elitert.com"};
+
+  // Talk sources (slide decks) — each carries the speaker referral + contact
+  const T = {
+    estate:{l:"Estate Planning 201", h:"slides/02-estate-planning-201.pdf", who:"Nic Sasso", co:"Dinsmore & Shohl", web:"dinsmore.com", url:"https://www.dinsmore.com", email:"Nic.sasso@dinsmore.com", phone:"(619) 255-0860"},
+    film:{l:"Film Production", h:"slides/03-film-production-investments.pdf", who:"Kyle Fox", co:"Fox Global Capital", web:"foxfinancialpartners.com", url:"https://foxfinancialpartners.com", email:"support@elitert.com"},
+    seat:{l:"Earn Your Seat", h:"slides/04-earn-your-seat.pdf", who:"Snyder & Maddox", co:"Cultivate Advisors", web:"cultivateadvisors.com", url:"https://cultivateadvisors.com"},
+    qoz:{l:"Oil & Gas / QOZ", h:"slides/05-oil-gas-qoz.pdf", who:"Todd Lofgren", co:"Alternative Tax Management", web:"alternativetaxmanagement.com", url:"https://alternativetaxmanagement.com", email:"tlofgren@alternativetm.com", phone:"(484) 802-1744"},
+    costseg:{l:"Cost Segregation", h:"slides/06-cost-segregation.pdf", who:"Heidi Henderson", co:"Engineered Tax Services", web:"engineeredtaxservices.com", url:"https://www.engineeredtaxservices.com"},
+    gfx:{l:"GFX / Leveraged Entity", h:"slides/07-gfx-leveraged-entity.pdf", who:"Michael Simms", co:"Veracity Advisers", web:"veracityadvisers.com", url:"https://www.veracityadvisers.com", email:"info@veracityadvisers.com", phone:"(561) 472-0815"},
+    rothish:{l:"Rothish Premium Financing", h:"slides/08-rothish-premium-financing.pdf", who:"Darren Sugiyama", co:"Lionsmark Capital", web:"lionsmarkcapital.com", url:"https://lionsmarkcapital.com"},
+    charity:{l:"Charitable Tax Planning", h:"slides/09-charitable-tax-planning.pdf", who:"Carson Grover", co:"Innovation Advisory Group", web:"wealthig.com", url:"https://wealthig.com"},
+    solar:{l:"Solar Tax Strategy", h:"slides/10-solar-tax-strategy.pdf", who:"Justin Draplin", co:"Fortified Solar", web:"fortifiedsolar.com", url:"https://fortifiedsolar.com", email:"hello@fortifiedsolar.com"},
+    qplan:{l:"Modern Qualified Plans", h:"slides/11-modern-qualified-plans.pdf", who:"Bruce Gendein", co:"McHenry Advisers", web:"mchenry-advisers.com", url:"https://mchenry-advisers.com", email:"info@mchenry-advisers.com", phone:"(614) 927-0909"},
+    cyber:{l:"Cybersecurity", h:"slides/12-cybersecurity-murder-mystery.pdf", who:"Foret & Neagle", co:"Spot Migration", web:"spotmigration.com", url:"https://spotmigration.com"},
+    tworoof:{l:"2 Businesses Under 1 Roof", h:"slides/13-2-businesses-1-roof.pdf", who:"Paul Latham", co:"Elite Resource Team", web:"elitert.com", url:"https://www.elitert.com", email:"support@elitert.com"}
+  };
+  const B = {
+    tax:{l:"Advanced Tax Planning", h:"books/advanced-tax-planning.pdf"},
+    bbb:{l:"Big Beautiful Bill", h:"books/big-beautiful-bill.pdf"},
+    w2:{l:"W-2 Planning Gaps", h:"books/w2-planning-gaps.pdf"},
+    rock:{l:"Rockefeller Blueprint", h:"books/rockefeller-blueprint.pdf"},
+    vfo:{l:"Installing a VFO", h:"books/installing-a-vfo.pdf"},
+    collab:{l:"Collaboration Playbook", h:"books/collaboration-playbook.pdf"},
+    coord:{l:"Coordinated Planning", h:"books/coordinated-planning.pdf"},
+    acct:{l:"The Advisory Accountant", h:"books/advisory-accountant.pdf"}
+  };
+
+  // categories in display order
+  const CATS = [
+    "Tax Deductions & Depreciation",
+    "Capital Gains & Concentrated Stock",
+    "Retirement & Qualified Plans",
+    "Insurance & Premium Financing",
+    "Estate & Wealth Transfer",
+    "Charitable Planning",
+    "Entity & Income Structuring",
+    "Alternative Investments",
+    "Practice & VFO Growth"
+  ];
+
+  // p: personas ["BO"], ["W2"], or ["BO","W2"]
+  const S = [
+    // Tax Deductions & Depreciation
+    {t:"Cost Segregation", c:0, p:["BO","W2"], d:"Engineering-based study to accelerate depreciation on owned real estate.", src:[T.costseg, B.tax, B.acct]},
+    {t:"Bonus Depreciation", c:0, p:["BO"], d:"Front-load deductions on qualifying assets; key under the 2025 bill.", src:[B.bbb, T.costseg]},
+    {t:"Oil & Gas Intangible Drilling Costs (IDC)", c:0, p:["BO","W2"], d:"Working-interest IDCs are non-passive — can offset ordinary / W-2 income.", src:[T.qoz, B.w2]},
+    {t:"Solar / Investment Tax Credit", c:0, p:["BO"], d:"ITC + depreciation on solar; passive-credit limits apply to W-2 investors.", src:[T.solar]},
+    {t:"Film Production Incentives (§181)", c:0, p:["BO"], d:"§181 expensing & bonus depreciation on qualified film investments.", src:[T.film]},
+    {t:"R&D Tax Credit", c:0, p:["BO"], d:"Credit for qualified research activity inside an operating business.", src:[B.tax, B.acct]},
+    {t:"§199A / QBI Optimization", c:0, p:["BO"], d:"Maximize the 20% qualified business income deduction.", src:[B.tax, B.bbb]},
+
+    // Capital Gains & Concentrated Stock
+    {t:"Qualified Opportunity Zone (QOZ 2.0)", c:1, p:["W2","BO"], d:"Defer and reduce capital gains by reinvesting realized gain into a QOF.", src:[T.qoz, B.w2, B.tax]},
+    {t:"GFX / Leveraged Entity (§704(b))", c:1, p:["BO","W2"], d:"§704(b)-compliant structure to mitigate tax on high income or capital gains.", src:[T.gfx]},
+    {t:"QSBS Exclusion (§1202)", c:1, p:["BO","W2"], d:"Exclude gain on qualified small business stock — relevant to founders & early employees.", src:[B.bbb]},
+    {t:"1031 Exchange", c:1, p:["BO"], d:"Defer capital gains on the exchange of like-kind real estate.", src:[B.tax]},
+    {t:"Installment Sale / Deferred Sales Trust", c:1, p:["BO"], d:"Spread gain recognition over time on a business or asset sale.", src:[B.tax]},
+    {t:"Step-Up in Basis Planning", c:1, p:["BO","W2"], d:"Coordinate holding & estate timing to capture basis step-up.", src:[B.tax]},
+
+    // Retirement & Qualified Plans
+    {t:"Cash Balance / Defined Benefit Plan", c:2, p:["BO"], d:"Large, deductible retirement contributions far above 401(k) limits.", src:[T.qplan, B.tax, B.acct]},
+    {t:"Modern Qualified Plans (in-plan life insurance / RTMS)", c:2, p:["BO"], d:"Reposition qualified assets via in-plan insurance into ILIT/SLAT for legacy.", src:[T.qplan]},
+    {t:"Backdoor / Mega Backdoor Roth", c:2, p:["W2"], d:"Move after-tax dollars into Roth for high-income W-2 earners.", src:[B.w2]},
+    {t:"HSA as Stealth Retirement", c:2, p:["W2","BO"], d:"Triple-tax-advantaged HSA used as a long-term investment vehicle.", src:[B.w2]},
+
+    // Insurance & Premium Financing
+    {t:"Premium Financing (Rothish)", c:3, p:["BO","W2"], d:"Bank-financed life insurance as a Roth-like, tax-advantaged wealth strategy.", src:[T.rothish]},
+    {t:"Life Insurance / IUL (tax-free growth)", c:3, p:["BO","W2"], d:"Cash-value insurance for tax-free accumulation and liquidity.", src:[B.tax, B.vfo]},
+    {t:"Captive Insurance", c:3, p:["BO"], d:"Owner-controlled insurance company for risk financing and tax efficiency.", src:[B.tax]},
+
+    // Estate & Wealth Transfer
+    {t:"ILIT (Irrevocable Life Insurance Trust)", c:4, p:["BO","W2"], d:"Keep life insurance proceeds outside the taxable estate.", src:[B.tax, B.rock, B.w2]},
+    {t:"SLAT (Spousal Lifetime Access Trust)", c:4, p:["BO","W2"], d:"Use lifetime exemption while retaining indirect spousal access.", src:[B.bbb]},
+    {t:"GRAT (Grantor Retained Annuity Trust)", c:4, p:["BO","W2"], d:"Transfer appreciation to heirs with minimal gift-tax cost.", src:[B.tax, B.rock, B.acct]},
+    {t:"Dynasty Trust / Rockefeller Framework", c:4, p:["BO","W2"], d:"Multi-generational trust structure to preserve & control family wealth.", src:[B.rock]},
+    {t:"Estate Planning 201 (trusts & gifting)", c:4, p:["BO","W2"], d:"Advanced trust, wealth-transfer and gifting structures with substantiation.", src:[T.estate]},
+
+    // Charitable Planning
+    {t:"Advanced Charitable Tax Planning", c:5, p:["BO","W2"], d:"Federal framework + case studies layering charitable strategies.", src:[T.charity]},
+    {t:"Donor-Advised Fund (DAF)", c:5, p:["W2","BO"], d:"Bunch deductions and gift appreciated stock to avoid capital gains.", src:[B.w2]},
+    {t:"Charitable Remainder Trust (CRT / CRUT)", c:5, p:["BO","W2"], d:"Convert appreciated assets to income while deferring gains and giving.", src:[B.tax, B.bbb]},
+
+    // Entity & Income Structuring
+    {t:"S-Corp / Reasonable Compensation", c:6, p:["BO"], d:"Optimize salary vs. distribution to reduce payroll tax.", src:[B.bbb]},
+    {t:"Augusta Rule / Short-Term Rental / REPS", c:6, p:["BO","W2"], d:"Tax-free home rental days and real-estate-professional loss strategies.", src:[B.w2, B.bbb]},
+    {t:"One Big Beautiful Bill Provisions", c:6, p:["BO","W2"], d:"Interaction of 2025 tax-reform provisions creating new planning openings.", src:[B.bbb]},
+    {t:"2 Businesses Under 1 Roof", c:6, p:["BO"], d:"Run a complementary advisory business inside an accounting practice.", src:[T.tworoof]},
+
+    // Alternative Investments
+    {t:"Oil & Gas Drilling Fund", c:7, p:["BO","W2"], d:"Tax-advantaged direct participation with intangible drilling deductions.", src:[T.qoz]},
+    {t:"Private / Institutional Currency Trading", c:7, p:["BO","W2"], d:"Diversification beyond traditional markets (Fusion session).", src:[B.vfo]},
+
+    // Practice & VFO Growth
+    {t:"Installing a Virtual Family Office", c:8, p:["BO"], d:"Add 75+ specialists to a practice and monetize existing clients in 45 days.", src:[B.vfo, B.rock]},
+    {t:"Value Acceleration / Earn Your Seat", c:8, p:["BO"], d:"Engage owners pre-liquidity to grow enterprise value and AUM.", src:[T.seat]},
+    {t:"Advisor–Accountant Collaboration", c:8, p:["BO"], d:"Build accountant partnerships that deliver qualified introductions.", src:[B.collab, B.coord, B.acct]},
+    {t:"Firm Cybersecurity", c:8, p:["BO"], d:"Protect the practice and client data from breach and liability.", src:[T.cyber]}
+  ];
+
+  const dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  const layerIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>';
+
+  let fCat = "all", fPer = "all", fQ = "";
+
+  // build filter buttons
+  const catRow = document.getElementById('catRow');
+  const perRow = document.getElementById('perRow');
+  const mkBtn = (label, val, cls, onClick, active) => {
+    const b = document.createElement('button');
+    b.className = 'chipbtn' + (cls?(' '+cls):'') + (active?' active':'');
+    b.textContent = label; b.onclick = () => onClick(val, b);
+    return b;
+  };
+  catRow.appendChild(mkBtn('All', 'all', '', setCat, true));
+  CATS.forEach((c,i)=> catRow.appendChild(mkBtn(c, i, '', setCat, false)));
+  perRow.appendChild(mkBtn('All', 'all', '', setPer, true));
+  perRow.appendChild(mkBtn('Business Owner', 'BO', 'bo', setPer, false));
+  perRow.appendChild(mkBtn('W-2 Professional', 'W2', 'w2', setPer, false));
+
+  function setCat(v, btn){ fCat=v; [...catRow.querySelectorAll('.chipbtn')].forEach(x=>x.classList.toggle('active', x===btn)); render(); }
+  function setPer(v, btn){ fPer=v; [...perRow.querySelectorAll('.chipbtn')].forEach(x=>x.classList.toggle('active', x===btn)); render(); }
+
+  // distinct lucide icons: slide deck vs. book
+  const slideIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>';
+  const bookIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
+  const globeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+  const mailIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>';
+  const phoneIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+
+  const isBookSrc = (s) => s.h.startsWith('books/');
+  const srcChip = (s) => { const b = isBookSrc(s);
+    return `<a class="srcchip ${b?'book':'talk'}" href="${s.h}" download>${b?bookIcon:slideIcon}${s.l}</a>`; };
+  const referralFor = (s) => s.src.find(x => !isBookSrc(x)) || ERT;
+
+  function hl(text){
+    if(!fQ) return text;
+    try { return text.replace(new RegExp('('+fQ.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'), '<mark>$1</mark>'); }
+    catch(e){ return text; }
+  }
+
+  function card(s){
+    const r = referralFor(s);
+    const n = s.src.length;
+    const contacts = [
+      `<a class="rchip web" href="${r.url}" target="_blank" rel="noopener">${globeIcon}${r.web}</a>`,
+      r.email ? `<a class="rchip" href="mailto:${r.email}">${mailIcon}${r.email}</a>` : '',
+      r.phone ? `<a class="rchip" href="tel:${r.phone.replace(/[^0-9+]/g,'')}">${phoneIcon}${r.phone}</a>` : ''
+    ].join('');
+    return `<div class="strat">
+      <span class="heat ${n>=3?'hot':''}">${layerIcon} ${n} source${n>1?'s':''}</span>
+      <div class="cat">${CATS[s.c]}</div>
+      <h3>${hl(s.t)}</h3>
+      <p class="d">${hl(s.d)}</p>
+      <div class="tags">
+        ${s.p.includes('BO') ? '<span class="tag bo">Business Owner</span>' : ''}
+        ${s.p.includes('W2') ? '<span class="tag w2">W-2 Professional</span>' : ''}
+      </div>
+      <div class="referral">
+        <div class="reflbl">${globeIcon} Referral &amp; Contact</div>
+        <div class="refname">${r.who}<span>${r.co}</span></div>
+        <div class="refchips">${contacts}</div>
+      </div>
+      <div class="src">${s.src.map(srcChip).join('')}</div>
+    </div>`;
+  }
+
+  function render(){
+    const q = fQ.toLowerCase();
+    const list = S.filter(s =>
+      (fCat==="all" || s.c===fCat) &&
+      (fPer==="all" || s.p.includes(fPer)) &&
+      (!q || (s.t+' '+s.d+' '+CATS[s.c]+' '+referralFor(s).co).toLowerCase().includes(q))
+    );
+    document.getElementById('count').innerHTML = `Showing <b>${list.length}</b> of ${S.length} strategies` + (fQ?` for “${fQ}”`:``);
+    document.getElementById('grid').innerHTML = list.map(card).join('');
+    document.getElementById('empty').style.display = list.length ? 'none' : 'block';
+  }
+
+  // search wiring
+  const searchEl = document.getElementById('search');
+  const clearEl = document.getElementById('clearBtn');
+  searchEl.addEventListener('input', () => { fQ = searchEl.value.trim(); clearEl.style.display = fQ ? 'block' : 'none'; render(); });
+  clearEl.addEventListener('click', () => { searchEl.value=''; fQ=''; clearEl.style.display='none'; searchEl.focus(); render(); });
+
+  // deep-link via URL params (?q= and ?persona=) from the Personas page
+  const params = new URLSearchParams(location.search);
+  const pq = params.get('q');
+  if (pq) { searchEl.value = pq; fQ = pq.trim(); clearEl.style.display = 'block'; }
+  const pp = params.get('persona');
+  if (pp === 'BO' || pp === 'W2') {
+    fPer = pp;
+    [...perRow.querySelectorAll('.chipbtn')].forEach((b,i) => b.classList.toggle('active', (pp==='BO'&&i===1)||(pp==='W2'&&i===2)||false));
+  }
+  render();
+</script>
+  <script src="nav.js" defer></script>
+</body>
+</html>

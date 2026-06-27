@@ -1,0 +1,12 @@
+# Force PDFs to download as real files (avoids 0-byte saves from the inline PDF viewer)
+/slides/*
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=3600
+
+/books/*
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=3600
+
+/2026-VFO-Collective-Agenda.pdf
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=3600
